@@ -3,7 +3,7 @@
     --primary-gradient: linear-gradient(90deg, #6E9B90 0%, #A3C9A8 100%); /* Gradiente suave de verde sálvia/menta */
     --dark-primary: #3A4F41;      /* Verde escuro acinzentado para textos e fundos */
     --text-primary: #333A40;       /* Cor principal de texto (cinza escuro) */
-    --text-secondary: #5E6973;    /* Cor de texto mais clara */
+    --text-secondary: #5E6973;      /* Cor de texto mais clara */
     --bg-light: #f8f9fa;      /* Fundo de seções e cards */
     --white: #ffffff;
     --image-placeholder-bg: #e0e0e0; /* Cinza claro para placeholders */
@@ -262,50 +262,62 @@ section {
     line-height: 1.6;
 }
 
-/* ---- RODAPÉ ---- */
-footer {
+/* ---- RODAPÉ (Estilo Unificado) ---- */
+/* Para o rodapé funcionar, seu HTML deve usar <footer id="contact"> */
+#contact {
     background-color: var(--dark-primary);
-    color: #a9a9b3;
-    padding-top: 5rem;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 4rem 0 0;
+    margin-top: 5rem; /* Adicionado para garantir espaçamento */
 }
-
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
-    padding-bottom: 4rem;
+    /* Usando repeat(auto-fit) para melhor responsividade */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding-bottom: 3rem;
 }
-
-.footer-col h3, .footer-col h4 {
+.footer-col h3,
+.footer-col h4 {
     color: var(--white);
-    font-size: 1.2rem;
     margin-bottom: 1rem;
 }
-
-.footer-col p, .footer-col address {
+.footer-col h3 {
+    font-size: 1.5rem;
+}
+.footer-col h4 {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.footer-col p {
     margin-bottom: 0.5rem;
 }
-
 .footer-col ul {
     list-style: none;
 }
-
-.footer-col ul li a {
-    color: #a9a9b3;
+.footer-col ul li {
+    margin-bottom: 0.5rem;
+}
+.footer-col a {
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: color 0.3s ease;
 }
-
-.footer-col ul li a:hover {
+.footer-col a:hover {
     color: var(--white);
+    text-decoration: underline;
 }
-
+address {
+    font-style: normal;
+}
 .footer-bottom {
-    border-top: 1px solid #5d7065; /* Tom mais claro do verde escuro */
     text-align: center;
     padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
 }
+
 
 /* ---- AJUSTE FINAL PARA IMAGENS DENTRO DOS PLACEHOLDERS ---- */
 .image-placeholder:has(img) {
@@ -329,16 +341,21 @@ footer {
 @media (max-width: 992px) {
     .hero-content h1 { font-size: 2.8rem; }
     .about-content { flex-direction: column; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
+    /* A regra do footer-grid aqui não é mais necessária,
+       pois repeat(auto-fit) já cuida disso */
 }
 
-/* MODIFICAÇÃO ABAIXO para empilhar o menu em vez de esconder */
 @media (max-width: 768px) {
     .hero-content h1 { font-size: 2.2rem; }
     .hero-content p { font-size: 1rem; }
     section { padding: 4rem 0; }
     .mission-vision-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; }
+    
+    /* A regra do footer-grid para uma coluna já é coberta pelo auto-fit,
+       mas adicionamos text-align para garantir a centralização */
+    .footer-grid {
+        text-align: center;
+    }
 
     /* Faz o container principal da navegação virar uma coluna */
     nav .nav-container {
