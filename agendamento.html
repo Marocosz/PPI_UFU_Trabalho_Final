@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agende sua consulta na Innovare Medical Center de forma rápida e fácil.">
+    <title>Agendamento de Consulta - Innovare Medical Center</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style_agendamento.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <nav>
+            <div class="nav-container">
+                <a href="/index.html" class="logo">Innovare</a>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/galeria.html">Galeria</a></li>
+                    <li><a href="/contato.html">Contato</a></li>
+                    <li><a href="/login.html">Acesso</a></li>
+                    <li><a href="/agendamento.html" class="cta-button nav-button">Agendar Consulta</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="schedule-page" class="schedule-page-section">
+            <div class="container">
+                <div class="page-title">
+                    <h1>Agende sua Consulta</h1>
+                    <p>Preencha os campos abaixo para marcar sua consulta de forma simples e rápida.</p>
+                </div>
+
+                <div class="schedule-form-wrapper">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <input type="text" id="nome" name="nome" placeholder=" " required>
+                            <label for="nome">Nome Completo</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder=" " required>
+                            <label for="email">E-mail</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="telefone" name="telefone" placeholder=" " required>
+                            <label for="telefone">Telefone</label>
+                        </div>
+
+                        <div class="form-group select-group">
+                            <label for="sexo">Sexo</label>
+                            <select id="sexo" name="sexo" required>
+                                <option value="" disabled selected>Selecione o Sexo</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="feminino">Feminino</option>
+                                <option value="outro">Outro</option>
+                                <option value="nao-informar">Prefiro não informar</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group select-group">
+                            <label for="especialidade">Especialidade</label>
+                            <select id="especialidade" name="especialidade" required>
+                                <option value="" disabled selected>Escolha a Especialidade</option>
+                                <option value="cardiologia">Cardiologia</option>
+                                <option value="dermatologia">Dermatologia</option>
+                                <option value="ortopedia">Ortopedia</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group select-group">
+                            <label for="medico">Médico(a)</label>
+                            <select id="medico" name="medico" required>
+                                <option value="" disabled selected>Escolha o Médico(a)</option>
+                                <option value="dr_carlos">Dr. Carlos (Cardiologia)</option>
+                                <option value="dra_ana">Dra. Ana (Dermatologia)</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="date-form-group">
+                            <label for="data_hora">Data e Hora da Consulta</label>
+                            <input type="datetime-local" id="data_hora" name="data_hora" required min="2025-07-09T00:00"
+                                max="2027-12-31T23:59">
+                        </div>
+
+                        <button type="submit" class="cta-button form-button">Confirmar Agendamento</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-col">
+                    <h3>Innovare Medical Center</h3>
+                    <p>Cuidado, tecnologia e inovação para transformar sua saúde e bem-estar.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="/index.html#about">Sobre Nós</a></li>
+                        <li><a href="/index.html#services">Serviços</a></li>
+                        <li><a href="/index.html">Início</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <address>
+                        Av. João Naves de Ávila, Santa Mônica, Uberlândia - MG
+                    </address>
+                    <p>Email: <a href="mailto:contato@innovarecenter.com">contato@innovarecenter.com</a></p>
+                    <p>Tel: (34) 3200-0000</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Innovare Medical Center. Todos os direitos reservados.</p>
+        </div>
+    </footer>
