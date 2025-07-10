@@ -1,51 +1,93 @@
-// Seleciona os elementos para abrir os modais
-const openEmployeeModalBtn = document.getElementById('open-employee-modal');
-const openDoctorModalBtn = document.getElementById('open-doctor-modal');
+// Espera o documento HTML ser completamente carregado para executar o script
+document.addEventListener('DOMContentLoaded', function() {
 
-// Seleciona os modais
-const employeeModal = document.getElementById('employee-modal');
-const doctorModal = document.getElementById('doctor-modal');
+    // --- SELEÇÃO DOS ELEMENTOS ---
+    
+    // Painéis que funcionam como botões
+    const openEmployeeModalBtn = document.getElementById('open-employee-modal');
+    const openDoctorModalBtn = document.getElementById('open-doctor-modal');
+    const internalListBtn = document.getElementById('internal-list-panel');
+    const externalListBtn = document.getElementById('external-list-panel');
 
-// Seleciona os botões para fechar os modais
-const closeEmployeeModalBtn = document.getElementById('close-employee-modal');
-const closeDoctorModalBtn = document.getElementById('close-doctor-modal');
+    // Modais e seus overlays
+    const employeeModal = document.getElementById('employee-modal');
+    const doctorModal = document.getElementById('doctor-modal');
 
-// Função para abrir um modal
-function openModal(modal) {
-    if (modal) modal.classList.add('active');
-}
+    // Botões de fechar dos modais
+    const closeEmployeeModalBtn = document.getElementById('close-employee-modal');
+    const closeDoctorModalBtn = document.getElementById('close-doctor-modal');
+    
+    // --- FUNÇÕES REUTILIZÁVEIS PARA ABRIR E FECHAR MODAIS ---
 
-// Função para fechar um modal
-function closeModal(modal) {
-    if (modal) modal.classList.remove('active');
-}
+    /**
+     * Adiciona a classe 'active' para exibir um modal.
+     * @param {HTMLElement} modal O elemento do modal a ser aberto.
+     */
+    function openModal(modal) {
+        if (modal) {
+            modal.classList.add('active');
+        }
+    }
 
-// Eventos para abrir os modais
-openEmployeeModalBtn.addEventListener('click', () => openModal(employeeModal));
-openDoctorModalBtn.addEventListener('click', () => openModal(doctorModal));
+    /**
+     * Remove a classe 'active' para esconder um modal.
+     * @param {HTMLElement} modal O elemento do modal a ser fechado.
+     */
+    function closeModal(modal) {
+        if (modal) {
+            modal.classList.remove('active');
+        }
+    }
 
-// Eventos para fechar os modais com os botões 'X'
-closeEmployeeModalBtn.addEventListener('click', () => closeModal(employeeModal));
-closeDoctorModalBtn.addEventListener('click', () => closeModal(doctorModal));
+    // --- EVENTOS DE CLIQUE PARA OS PAINÉIS ---
 
-// Evento para fechar o modal clicando fora da área de conteúdo
-[employeeModal, doctorModal].forEach(modal => {
-    modal.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            closeModal(modal);
+    // 1. Abrir Modal de Cadastro de Funcionário
+    openEmployeeModalBtn.addEventListener('click', () => {
+        openModal(employeeModal);
+    });
+
+    // 2. Abrir Modal de Cadastro de Médico
+    openDoctorModalBtn.addEventListener('click', () => {
+        openModal(doctorModal);
+    });
+
+    // 3. Redirecionar para a página de Lista Interna
+    internalListBtn.addEventListener('click', () => {
+        // ATENÇÃO: Altere 'lista_interna.html' para o nome real da sua página.
+        window.location.href = 'lista_interna.html';
+    });
+
+    // 4. Redirecionar para a página de Lista Externa
+    externalListBtn.addEventListener('click', () => {
+        // ATENÇÃO: Altere 'lista_externa.html' para o nome real da sua página.
+        window.location.href = 'lista_externa.html';
+    });
+
+
+    // --- EVENTOS PARA FECHAR OS MODAIS ---
+
+    // Fechar modal de funcionário pelo botão 'x'
+    closeEmployeeModalBtn.addEventListener('click', () => {
+        closeModal(employeeModal);
+    });
+
+    // Fechar modal de médico pelo botão 'x'
+    closeDoctorModalBtn.addEventListener('click', () => {
+        closeModal(doctorModal);
+    });
+    
+    // Fechar o modal clicando fora da caixa de conteúdo (no overlay)
+    employeeModal.addEventListener('click', (event) => {
+        // Se o alvo do clique for o próprio overlay (fundo), fecha o modal
+        if (event.target === employeeModal) {
+            closeModal(employeeModal);
         }
     });
-});
 
-// Previne o envio real do formulário (apenas para demonstração)
-document.getElementById('employee-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Funcionário cadastrado com sucesso! (Demonstração)');
-    closeModal(employeeModal);
-});
+    doctorModal.addEventListener('click', (event) => {
+        if (event.target === doctorModal) {
+            closeModal(doctorModal);
+        }
+    });
 
-document.getElementById('doctor-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Médico cadastrado com sucesso! (Demonstração)');
-    closeModal(doctorModal);
 });

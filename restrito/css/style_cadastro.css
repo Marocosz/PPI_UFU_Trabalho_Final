@@ -43,11 +43,11 @@ body {
 }
 
 .main-header .logo {
-    font-size: 1.5rem; /* Levemente reduzido para acomodar o texto maior */
+    font-size: 1.5rem; 
     font-weight: 600;
     color: var(--dark-primary);
     text-decoration: none;
-    white-space: nowrap; /* Impede que o texto quebre em duas linhas */
+    white-space: nowrap;
 }
 
 .main-header nav ul {
@@ -98,66 +98,73 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* ===== CONTAINER DOS PAINÉIS (ATUALIZADO) ===== */
+/* ===== CONTAINER DOS PAINÉIS ===== */
 .panel-container {
     display: flex;
     justify-content: center;
-    align-items: stretch; /* Faz os itens se estenderem na altura */
     gap: 0;
     padding: 5rem 2rem;
-    flex-wrap: nowrap; /* Impede a quebra para manter em linha */
+    flex-wrap: wrap;
     filter: drop-shadow(0 8px 30px rgba(0,0,0,0.08));
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .panel-card {
     background-color: var(--white);
-    width: 50%; /* Cada card ocupa metade da largura */
+    width: 50%;
     padding: 2.5rem;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; /* Novo: para controlar o alinhamento interno */
-    flex-direction: column; /* Novo: para organizar ícone e texto verticalmente */
-    justify-content: center; /* Novo: centraliza o conteúdo verticalmente */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
 }
 
-.panel-card:hover {
+/* Bordas para a grade 2x2 */
+.panel-card:nth-child(2n+1) {
+    border-right: 1px solid var(--border-color);
+}
+.panel-card:nth-child(1),
+.panel-card:nth-child(2) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Animação de hover para os painéis de CIMA */
+.panel-card:nth-child(-n+2):hover {
     transform: translateY(-10px);
-    filter: brightness(1.02);
+    box-shadow: 0 20px 35px rgba(58, 79, 65, 0.15);
+    z-index: 10;
 }
 
-.panel-card:first-child {
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-right: 1px solid var(--border-color); /* Adiciona uma divisória */
-}
-
-.panel-card:last-child {
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-left: 0; /* Remove a borda esquerda para não duplicar */
+/* Animação de hover para os painéis de BAIXO */
+.panel-card:nth-child(n+3):hover {
+    transform: translateY(-10px);
+    box-shadow: 0 -12px 25px rgba(58, 79, 65, 0.18);
+    z-index: 10;
 }
 
 .panel-card .icon {
-    margin-bottom: 1rem; /* Reduzi um pouco a margem */
+    margin-bottom: 1rem;
     color: var(--dark-primary);
 }
 
-.panel-card .icon svg {
-    width: 64px;
-    height: 64px;
-    margin: 0; /* Garante que não haja margem extra no SVG */
-    display: block; /* Garante que o SVG não tenha comportamento inline */
+/* REGRAS PARA OS NOVOS ÍCONES EM FONTE (tags <i>) */
+.panel-card .icon i {
+    font-size: 56px;
+    line-height: 1;
+    display: inline-block; /* Necessário para a transição de 'transform' */
+    transition: transform 0.3s ease-in-out;
 }
 
-.panel-card h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--dark-primary);
-    margin-top: 0.5rem; /* Adicionei um pouco de margem acima do título */
+/* Animação de crescimento para os novos ícones */
+.panel-card:hover .icon i {
+    transform: scale(1.1);
 }
 
-/* ---- ESTILOS DO MODAL ---- */
+/* ===== ESTILOS DO MODAL (ATUALIZADO) ===== */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -165,20 +172,18 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 3rem 1.5rem;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 1000;
+    z-index: 2000;
+    overflow-y: auto; /* Esta linha permite a rolagem */
 }
 
 .modal-overlay.active {
     opacity: 1;
     visibility: visible;
 }
-
 .modal-content {
     background-color: var(--white);
     padding: 2.5rem;
@@ -189,19 +194,18 @@ body {
     position: relative;
     transform: translateY(-50px);
     transition: transform 0.3s ease;
+    margin: 0 auto;      /* ADICIONADO: Centraliza o modal horizontalmente */
+    height: fit-content;  /* ADICIONADO: Garante que a altura se ajuste ao conteúdo */
 }
-
 .modal-overlay.active .modal-content {
     transform: translateY(0);
 }
-
 .modal-content h3 {
     margin-bottom: 2rem;
     font-size: 1.75rem;
     color: var(--dark-primary);
     text-align: center;
 }
-
 .close-button {
     position: absolute;
     top: 15px;
@@ -211,18 +215,15 @@ body {
     cursor: pointer;
     line-height: 1;
 }
-
 .modal-form .form-group {
     margin-bottom: 1.5rem;
 }
-
 .modal-form .form-group label {
     display: block;
     font-weight: 500;
     margin-bottom: 0.5rem;
     color: var(--text-secondary);
 }
-
 .modal-form .form-group input,
 .modal-form .form-group select {
     width: 100%;
