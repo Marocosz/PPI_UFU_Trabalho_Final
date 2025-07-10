@@ -43,7 +43,7 @@ body {
 }
 
 .main-header .logo {
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--dark-primary);
     text-decoration: none;
@@ -132,17 +132,10 @@ body {
     border-bottom: 1px solid var(--border-color);
 }
 
-/* Animação de hover para os painéis de CIMA */
-.panel-card:nth-child(-n+2):hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 35px rgba(58, 79, 65, 0.15);
-    z-index: 10;
-}
-
-/* Animação de hover para os painéis de BAIXO */
-.panel-card:nth-child(n+3):hover {
-    transform: translateY(-10px);
-    box-shadow: 0 -12px 25px rgba(58, 79, 65, 0.18);
+/* MODIFICADO: Animação de expansão com sombra mais forte */
+.panel-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px 5px rgba(58, 79, 65, 0.25);
     z-index: 10;
 }
 
@@ -151,15 +144,13 @@ body {
     color: var(--dark-primary);
 }
 
-/* REGRAS PARA OS NOVOS ÍCONES EM FONTE (tags <i>) */
 .panel-card .icon i {
     font-size: 56px;
     line-height: 1;
-    display: inline-block; /* Necessário para a transição de 'transform' */
+    display: inline-block;
     transition: transform 0.3s ease-in-out;
 }
 
-/* Animação de crescimento para os novos ícones */
 .panel-card:hover .icon i {
     transform: scale(1.1);
 }
@@ -177,13 +168,14 @@ body {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 2000;
-    overflow-y: auto; /* Esta linha permite a rolagem */
+    overflow-y: auto;
 }
 
 .modal-overlay.active {
     opacity: 1;
     visibility: visible;
 }
+
 .modal-content {
     background-color: var(--white);
     padding: 2.5rem;
@@ -194,18 +186,21 @@ body {
     position: relative;
     transform: translateY(-50px);
     transition: transform 0.3s ease;
-    margin: 0 auto;      /* ADICIONADO: Centraliza o modal horizontalmente */
-    height: fit-content;  /* ADICIONADO: Garante que a altura se ajuste ao conteúdo */
+    margin: 0 auto;
+    height: fit-content;
 }
+
 .modal-overlay.active .modal-content {
     transform: translateY(0);
 }
+
 .modal-content h3 {
     margin-bottom: 2rem;
     font-size: 1.75rem;
     color: var(--dark-primary);
     text-align: center;
 }
+
 .close-button {
     position: absolute;
     top: 15px;
@@ -215,15 +210,18 @@ body {
     cursor: pointer;
     line-height: 1;
 }
+
 .modal-form .form-group {
     margin-bottom: 1.5rem;
 }
+
 .modal-form .form-group label {
     display: block;
     font-weight: 500;
     margin-bottom: 0.5rem;
     color: var(--text-secondary);
 }
+
 .modal-form .form-group input,
 .modal-form .form-group select {
     width: 100%;

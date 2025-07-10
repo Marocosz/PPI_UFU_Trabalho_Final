@@ -51,16 +51,14 @@ document.addEventListener('DOMContentLoaded', function() {
         openModal(doctorModal);
     });
 
-    // 3. Redirecionar para a página de Lista Interna
+    // 3. Redirecionar para a página de Lista Interna (ALTERADO)
     internalListBtn.addEventListener('click', () => {
-        // ATENÇÃO: Altere 'lista_interna.html' para o nome real da sua página.
-        window.location.href = 'lista_interna.html';
+        window.location.href = 'interno.html';
     });
 
-    // 4. Redirecionar para a página de Lista Externa
+    // 4. Redirecionar para a página de Lista Externa (ALTERADO)
     externalListBtn.addEventListener('click', () => {
-        // ATENÇÃO: Altere 'lista_externa.html' para o nome real da sua página.
-        window.location.href = 'lista_externa.html';
+        window.location.href = 'externo.html';
     });
 
 
