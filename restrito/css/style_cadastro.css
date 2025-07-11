@@ -1,5 +1,6 @@
 /* ---- VARIÁVEIS DE COR E CONFIGURAÇÕES GERAIS ---- */
 :root {
+    /*---- Define variáveis CSS globais para cores e gradientes reutilizáveis no projeto ----*/
     --primary-gradient: linear-gradient(90deg, #6E9B90 0%, #A3C9A8 100%);
     --dark-primary: #3A4F41;
     --text-primary: #333A40;
@@ -11,12 +12,14 @@
 }
 
 * {
+    /*---- Reseta a margem e o preenchimento de todos os elementos e ajusta o modelo de caixa ----*/
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
+    /*---- Define a fonte, cor de fundo, cor do texto e altura da linha para todo o corpo da página ----*/
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-light);
     color: var(--text-primary);
@@ -25,6 +28,7 @@ body {
 
 /* ===== BARRA DE NAVEGAÇÃO ===== */
 .main-header {
+    /*---- Estiliza o cabeçalho principal, tornando-o fixo no topo com uma sombra ----*/
     background: var(--white);
     padding: 1rem 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
@@ -34,6 +38,7 @@ body {
 }
 
 .main-header nav .nav-container {
+    /*---- Organiza o conteúdo da navegação (logo e menu) com espaçamento e alinhamento ----*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,6 +48,7 @@ body {
 }
 
 .main-header .logo {
+    /*---- Define o estilo do texto do logotipo, garantindo que não quebre a linha ----*/
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--dark-primary);
@@ -51,6 +57,7 @@ body {
 }
 
 .main-header nav ul {
+    /*---- Estiliza a lista do menu, removendo marcadores e alinhando os itens horizontalmente ----*/
     list-style: none;
     display: flex;
     align-items: center;
@@ -58,6 +65,7 @@ body {
 }
 
 .main-header nav ul li a {
+    /*---- Estiliza os links do menu com cor, peso da fonte e posicionamento relativo ----*/
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
@@ -66,6 +74,7 @@ body {
 }
 
 .main-header nav ul li a:not(.nav-button)::after {
+    /*---- Cria uma linha decorativa abaixo dos links do menu para animação ----*/
     content: '';
     position: absolute;
     bottom: 0;
@@ -77,10 +86,12 @@ body {
 }
 
 .main-header nav ul li a:not(.nav-button):hover::after {
+    /*---- Anima a largura da linha decorativa ao passar o mouse sobre o link ----*/
     width: 100%;
 }
 
 .cta-button {
+    /*---- Define o estilo principal de botões de ação com gradiente e bordas arredondadas ----*/
     background: var(--primary-gradient);
     color: var(--white);
     padding: 0.7rem 1.8rem;
@@ -94,23 +105,26 @@ body {
 }
 
 .cta-button:hover {
+    /*---- Adiciona um efeito de elevação no botão ao passar o mouse ----*/
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* ===== CONTAINER DOS PAINÉIS ===== */
 .panel-container {
+    /*---- Define o contêiner principal para os painéis, com layout flexível, sombra e centralização ----*/
     display: flex;
     justify-content: center;
     gap: 0;
     padding: 5rem 2rem;
     flex-wrap: wrap;
-    filter: drop-shadow(0 8px 30px rgba(0,0,0,0.08));
+    filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.08));
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .panel-card {
+    /*---- Estiliza cada painel clicável, com fundo branco, centralização de conteúdo e transições ----*/
     background-color: var(--white);
     width: 50%;
     padding: 2.5rem;
@@ -123,28 +137,32 @@ body {
     position: relative;
 }
 
-/* Bordas para a grade 2x2 */
 .panel-card:nth-child(2n+1) {
+    /*---- Adiciona uma borda à direita nos painéis da esquerda (1º e 3º) para formar a grade ----*/
     border-right: 1px solid var(--border-color);
 }
+
 .panel-card:nth-child(1),
 .panel-card:nth-child(2) {
+    /*---- Adiciona uma borda inferior nos painéis superiores (1º e 2º) para formar a grade ----*/
     border-bottom: 1px solid var(--border-color);
 }
 
-/* MODIFICADO: Animação de expansão com sombra mais forte */
 .panel-card:hover {
+    /*---- Aplica um efeito de expansão e sombra mais forte ao passar o mouse sobre um painel ----*/
     transform: scale(1.05);
     box-shadow: 0 10px 30px 5px rgba(58, 79, 65, 0.25);
     z-index: 10;
 }
 
 .panel-card .icon {
+    /*---- Estiliza o contêiner do ícone dentro do painel ----*/
     margin-bottom: 1rem;
     color: var(--dark-primary);
 }
 
 .panel-card .icon i {
+    /*---- Define o tamanho e a transição para o ícone ----*/
     font-size: 56px;
     line-height: 1;
     display: inline-block;
@@ -152,11 +170,13 @@ body {
 }
 
 .panel-card:hover .icon i {
+    /*---- Aplica um efeito de zoom no ícone ao passar o mouse sobre o painel ----*/
     transform: scale(1.1);
 }
 
 /* ===== ESTILOS DO MODAL (ATUALIZADO) ===== */
 .modal-overlay {
+    /*---- Estiliza a sobreposição do modal, tornando-a invisível por padrão ----*/
     position: fixed;
     top: 0;
     left: 0;
@@ -172,15 +192,17 @@ body {
 }
 
 .modal-overlay.active {
+    /*---- Torna a sobreposição do modal visível quando a classe 'active' é aplicada ----*/
     opacity: 1;
     visibility: visible;
 }
 
 .modal-content {
+    /*---- Estiliza a caixa de conteúdo do modal, com fundo, sombra e transição de entrada ----*/
     background-color: var(--white);
     padding: 2.5rem;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     width: 90%;
     max-width: 500px;
     position: relative;
@@ -191,10 +213,12 @@ body {
 }
 
 .modal-overlay.active .modal-content {
+    /*---- Anima a entrada do conteúdo do modal quando a sobreposição está ativa ----*/
     transform: translateY(0);
 }
 
 .modal-content h3 {
+    /*---- Estiliza o título dentro do modal ----*/
     margin-bottom: 2rem;
     font-size: 1.75rem;
     color: var(--dark-primary);
@@ -202,6 +226,7 @@ body {
 }
 
 .close-button {
+    /*---- Posiciona e estiliza o botão de fechar do modal ----*/
     position: absolute;
     top: 15px;
     right: 20px;
@@ -212,10 +237,12 @@ body {
 }
 
 .modal-form .form-group {
+    /*---- Define o espaçamento inferior para os grupos de campos do formulário no modal ----*/
     margin-bottom: 1.5rem;
 }
 
 .modal-form .form-group label {
+    /*---- Estiliza os rótulos (labels) do formulário no modal ----*/
     display: block;
     font-weight: 500;
     margin-bottom: 0.5rem;
@@ -224,6 +251,7 @@ body {
 
 .modal-form .form-group input,
 .modal-form .form-group select {
+    /*---- Estiliza os campos de input e select do formulário no modal ----*/
     width: 100%;
     padding: 0.75rem;
     border: 1px solid var(--border-color);

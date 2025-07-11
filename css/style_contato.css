@@ -1,5 +1,6 @@
 /* ---- CONFIGURAÇÕES GERAIS E VARIÁVEIS DE COR ---- */
 :root {
+    /*---- Define variáveis CSS globais para cores e gradientes reutilizáveis no projeto ----*/
     --primary-gradient: linear-gradient(90deg, #6E9B90 0%, #A3C9A8 100%);
     --dark-primary: #3A4F41;
     --text-primary: #333A40;
@@ -10,32 +11,102 @@
 }
 
 /* ---- ESTILOS DE BASE ---- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Poppins', sans-serif; color: var(--text-primary); background-color: var(--white); line-height: 1.7; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+* {
+    /*---- Reseta a margem e o preenchimento de todos os elementos e ajusta o modelo de caixa ----*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /*---- Habilita a rolagem suave ao clicar em links de âncora ----*/
+    scroll-behavior: smooth;
+}
+
+body {
+    /*---- Define a fonte, cor do texto, fundo e altura da linha para todo o corpo da página ----*/
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
+    background-color: var(--white);
+    line-height: 1.7;
+}
+
+.container {
+    /*---- Define um container centralizado com largura máxima e espaçamento lateral ----*/
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
 
 /* ---- BARRA DE NAVEGAÇÃO ---- */
 .main-header {
+    /*---- Estiliza o cabeçalho principal, tornando-o fixo no topo com uma sombra ----*/
     background: var(--white);
     padding: 1rem 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
-.main-header nav .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-.main-header .logo { font-size: 1.8rem; font-weight: 700; color: var(--dark-primary); text-decoration: none; }
-.main-header nav ul { list-style: none; display: flex; align-items: center; gap: 2rem; }
-.main-header nav ul li a { color: var(--text-primary); text-decoration: none; font-weight: 500; position: relative; padding-bottom: 0.5rem; }
-.main-header nav ul li a:not(.nav-button)::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--dark-primary); transition: width 0.4s ease; }
-.main-header nav ul li a:not(.nav-button):hover::after { width: 100%; }
+
+.main-header nav .nav-container {
+    /*---- Organiza o conteúdo da navegação (logo e menu) com espaçamento e alinhamento ----*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.main-header .logo {
+    /*---- Define o estilo do texto do logotipo ----*/
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-primary);
+    text-decoration: none;
+}
+
+.main-header nav ul {
+    /*---- Estiliza a lista do menu, removendo marcadores e alinhando os itens horizontalmente ----*/
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.main-header nav ul li a {
+    /*---- Estiliza os links do menu com cor, peso da fonte e posicionamento relativo ----*/
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.main-header nav ul li a:not(.nav-button)::after {
+    /*---- Cria uma linha decorativa abaixo dos links do menu para animação ----*/
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--dark-primary);
+    transition: width 0.4s ease;
+}
+
+.main-header nav ul li a:not(.nav-button):hover::after {
+    /*---- Anima a largura da linha decorativa ao passar o mouse sobre o link ----*/
+    width: 100%;
+}
 
 /* ===== BOTÃO CTA (CALL TO ACTION)========== */
 .cta-button {
+    /*---- Define o estilo de botões de ação com gradiente, bordas arredondadas e alinhamento de texto ----*/
     background: var(--primary-gradient);
     color: var(--white);
-    padding: 0.7rem 1.8rem 0.9rem 1.8rem; /* Menos padding em cima, mais embaixo */
+    padding: 0.7rem 1.8rem 0.9rem 1.8rem;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 500;
@@ -45,32 +116,38 @@ body { font-family: 'Poppins', sans-serif; color: var(--text-primary); backgroun
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
-    /* PROPRIEDADES ADICIONADAS PARA CORREÇÃO VISUAL */
     position: relative;
-    top: -1px; /* Ajuste este valor se necessário (ex: -2px) */
+    top: -1px;
 }
 
-.cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+.cta-button:hover {
+    /*---- Adiciona um efeito de elevação no botão ao passar o mouse ----*/
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 
 /* ---- ESTILOS DA PÁGINA DE CONTATO ---- */
 .contact-page-section {
+    /*---- Define o espaçamento e a cor de fundo para a seção de contato ----*/
     padding: 5rem 0;
     background-color: var(--white);
 }
 
 .page-title {
+    /*---- Estiliza o contêiner do título da página, centralizando o texto ----*/
     text-align: center;
     margin-bottom: 4rem;
 }
 
 .page-title h1 {
+    /*---- Estiliza o texto do título principal H1 ----*/
     font-size: 2.8rem;
     color: var(--dark-primary);
     margin-bottom: 0.5rem;
 }
 
 .page-title p {
+    /*---- Estiliza o parágrafo de subtítulo, limitando sua largura e centralizando ----*/
     font-size: 1.1rem;
     color: var(--text-secondary);
     max-width: 600px;
@@ -78,6 +155,7 @@ body { font-family: 'Poppins', sans-serif; color: var(--text-primary); backgroun
 }
 
 .contact-layout {
+    /*---- Define um layout de grade para organizar as seções de informações e formulário ----*/
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     gap: 2rem;
@@ -86,6 +164,7 @@ body { font-family: 'Poppins', sans-serif; color: var(--text-primary); backgroun
 
 /* ---- COLUNA DE INFORMAÇÕES (Esquerda com fundo) ---- */
 .contact-info {
+    /*---- Estiliza a coluna de informações com fundo gradiente, espaçamento e layout flexível ----*/
     background: var(--primary-gradient);
     padding: 3rem;
     border-radius: 15px;
@@ -95,16 +174,19 @@ body { font-family: 'Poppins', sans-serif; color: var(--text-primary); backgroun
 }
 
 .contact-info h2 {
+    /*---- Estiliza o título H2 dentro da coluna de informações ----*/
     font-size: 2rem;
     color: var(--white);
     margin-bottom: 2rem;
 }
 
 .contact-info .info-item {
+    /*---- Adiciona espaçamento inferior para cada item de informação ----*/
     margin-bottom: 2rem;
 }
 
 .contact-info .info-item h4 {
+    /*---- Estiliza o subtítulo H4 de cada item de informação ----*/
     color: var(--white);
     font-size: 1.2rem;
     margin-bottom: 0.25rem;
@@ -112,11 +194,13 @@ body { font-family: 'Poppins', sans-serif; color: var(--text-primary); backgroun
 }
 
 .contact-info .info-item p {
+    /*---- Estiliza o texto do parágrafo de cada item de informação ----*/
     color: rgba(255, 255, 255, 0.9);
     margin: 0;
 }
 
 .contact-info .map-container {
+    /*---- Estiliza o contêiner do mapa, forçando-o para a parte inferior e aplicando bordas arredondadas ----*/
     border-radius: 15px;
     overflow: hidden;
     margin-top: auto;
@@ -124,6 +208,7 @@ body { font-family: 'Poppins', sans-serif; color: var(--text-primary); backgroun
 }
 
 .contact-info .map-container iframe {
+    /*---- Garante que o iframe do mapa preencha o contêiner sem bordas ----*/
     width: 100%;
     height: 250px;
     border: 0;
@@ -131,22 +216,26 @@ body { font-family: 'Poppins', sans-serif; color: var(--text-primary); backgroun
 
 /* ---- FORMULÁRIO (Direita) ---- */
 .contact-form-wrapper {
+    /*---- Adiciona um espaçamento interno ao contêiner do formulário ----*/
     padding: 1rem;
 }
 
 .contact-form-wrapper h2 {
+    /*---- Estiliza o título H2 do formulário de contato ----*/
     font-size: 2rem;
     color: var(--dark-primary);
     margin-bottom: 2rem;
 }
 
 .form-group {
+    /*---- Define o posicionamento relativo e margem para cada grupo de campo do formulário ----*/
     position: relative;
     margin-bottom: 2.5rem;
 }
 
 .form-group input,
 .form-group textarea {
+    /*---- Estiliza os campos de input e textarea com fundo transparente e borda inferior ----*/
     width: 100%;
     padding: 0.8rem 0.2rem;
     border: none;
@@ -157,11 +246,12 @@ body { font-family: 'Poppins', sans-serif; color: var(--text-primary); backgroun
     color: var(--text-primary);
     transition: border-color 0.3s ease;
     position: relative;
-    z-index: 1; 
+    z-index: 1;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
+    /*---- Remove o contorno e muda a cor da borda inferior quando o campo está focado ----*/
     outline: none;
     border-color: var(--dark-primary);
 }
@@ -169,43 +259,36 @@ body { font-family: 'Poppins', sans-serif; color: var(--text-primary); backgroun
 
 /* ===== ÚNICA REGRA MODIFICADA ===== */
 .form-group label {
+    /*---- Estiliza e posiciona os rótulos (labels) para o efeito de flutuação ----*/
     position: absolute;
     top: 0.8rem;
     left: 0.2rem;
     color: var(--text-secondary);
     font-size: 1rem;
     transition: all 0.3s ease;
-    pointer-events: none; /* Garante que o clique "atravesse" o rótulo e chegue ao input */
+    pointer-events: none;
 }
 /* ==================================== */
 
 
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label,
-.form-group textarea:focus + label,
-.form-group textarea:not(:placeholder-shown) + label {
+.form-group input:focus+label,
+.form-group input:not(:placeholder-shown)+label,
+.form-group textarea:focus+label,
+.form-group textarea:not(:placeholder-shown)+label {
+    /*---- Anima o rótulo para a posição superior quando o campo está focado ou preenchido ----*/
     top: -1rem;
     font-size: 0.85rem;
     color: var(--dark-primary);
 }
 
-/*
-  IMPORTANTE: Para o efeito acima funcionar, seu HTML precisa de:
-  1. Um 'placeholder' vazio para o seletor :not(:placeholder-shown) funcionar.
-  2. Acessibilidade: O atributo 'for' no label deve corresponder ao 'id' do input.
-  
-  <div class="form-group">
-    <input type="text" id="nome" name="nome" placeholder=" " required>
-    <label for="nome">Seu Nome</label>
-  </div>
-*/
-
 textarea {
+    /*---- Permite o redimensionamento vertical da área de texto e define uma altura mínima ----*/
     resize: vertical;
     min-height: 80px;
 }
 
 .form-button {
+    /*---- Estiliza o botão de envio do formulário, fazendo-o ocupar toda a largura ----*/
     width: 100%;
     padding: 1rem 1.8rem;
     font-size: 1.1rem;
@@ -214,6 +297,7 @@ textarea {
 
 /* ---- RODAPÉ ATUALIZADO ---- */
 #main-footer {
+    /*---- Estiliza a seção do rodapé principal com fundo claro e borda superior ----*/
     background-color: var(--bg-light);
     border-top: 1px solid #e7e7e7;
     padding: 1.5rem 0;
@@ -221,6 +305,7 @@ textarea {
 }
 
 #main-footer .footer-content {
+    /*---- Organiza o conteúdo do rodapé com layout flexível e espaçamento ----*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -229,12 +314,14 @@ textarea {
 }
 
 #main-footer .copyright {
+    /*---- Estiliza o texto de direitos autorais no rodapé ----*/
     color: var(--text-secondary);
     font-size: 0.9rem;
     margin: 0;
 }
 
 .footer-nav ul {
+    /*---- Estiliza a lista de navegação do rodapé, alinhando os itens horizontalmente ----*/
     list-style: none;
     display: flex;
     gap: 1.5rem;
@@ -243,6 +330,7 @@ textarea {
 }
 
 .footer-nav a {
+    /*---- Estiliza os links de navegação do rodapé ----*/
     color: var(--text-secondary);
     text-decoration: none;
     font-size: 0.9rem;
@@ -250,6 +338,7 @@ textarea {
 }
 
 .footer-nav a:hover {
+    /*---- Altera a cor e adiciona sublinhado ao passar o mouse sobre os links do rodapé ----*/
     color: var(--dark-primary);
     text-decoration: underline;
 }
@@ -258,21 +347,36 @@ textarea {
 /* ---- RESPONSIVIDADE ---- */
 @media (max-width: 992px) {
     .contact-layout {
+        /*---- Altera o layout de contato para uma única coluna em telas menores ----*/
         grid-template-columns: 1fr;
         gap: 3rem;
     }
 }
 
 @media (max-width: 768px) {
-    .page-title h1 { font-size: 2.2rem; }
-    .contact-page-section { padding: 4rem 0; }
+    .page-title h1 {
+        /*---- Diminui o tamanho da fonte do título principal em telas de celular ----*/
+        font-size: 2.2rem;
+    }
+    .contact-page-section {
+        /*---- Reduz o espaçamento vertical da seção de contato em telas de celular ----*/
+        padding: 4rem 0;
+    }
 
-    /* Ajuste na barra de navegação principal para mobile */
-    .main-header nav .nav-container { flex-direction: column; gap: 1.5rem; }
-    .main-header nav ul { flex-direction: column; gap: 1rem; padding-top: 1rem; }
+    .main-header nav .nav-container {
+        /*---- Empilha os itens do cabeçalho verticalmente em telas de celular ----*/
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .main-header nav ul {
+        /*---- Empilha os itens do menu verticalmente em telas de celular ----*/
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 1rem;
+    }
 
-    /* Ajuste do rodapé para mobile */
     #main-footer .footer-content {
+        /*---- Centraliza e empilha o conteúdo do rodapé em telas de celular ----*/
         flex-direction: column;
         justify-content: center;
         text-align: center;

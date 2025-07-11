@@ -1,5 +1,6 @@
 /* ---- CONFIGURAÇÕES GERAIS E VARIÁVEIS DE COR ---- */
 :root {
+    /*---- Define variáveis globais de cor e gradientes para uso em todo o site ----*/
     --primary-gradient: linear-gradient(90deg, #6E9B90 0%, #A3C9A8 100%);
     --dark-primary: #3A4F41;
     --text-primary: #333A40;
@@ -11,16 +12,19 @@
 
 /* ---- ESTILOS DE BASE ---- */
 * {
+    /*---- Reseta a margem, o preenchimento e ajusta o cálculo de tamanho para todos os elementos ----*/
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 html {
+    /*---- Habilita a rolagem suave ao clicar em links internos (âncoras) ----*/
     scroll-behavior: smooth;
 }
 
 body {
+    /*---- Define a fonte, cor do texto, cor de fundo e altura da linha para o corpo da página ----*/
     font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
     background-color: var(--bg-light);
@@ -28,6 +32,7 @@ body {
 }
 
 .container {
+    /*---- Cria um container centralizado com largura máxima e espaçamento lateral ----*/
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
@@ -35,6 +40,7 @@ body {
 
 /* ---- BARRA DE NAVEGAÇÃO ---- */
 .main-header {
+    /*---- Estiliza o cabeçalho com fundo branco, sombra e o mantém fixo no topo ----*/
     background: var(--white);
     padding: 1rem 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
@@ -44,6 +50,7 @@ body {
 }
 
 .main-header nav .nav-container {
+    /*---- Organiza o conteúdo da navegação (logo e menu) com espaçamento e alinhamento ----*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,6 +60,7 @@ body {
 }
 
 .main-header .logo {
+    /*---- Define o estilo do texto do logotipo ----*/
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--dark-primary);
@@ -60,6 +68,7 @@ body {
 }
 
 .main-header nav ul {
+    /*---- Estiliza a lista do menu, removendo marcadores e alinhando os itens horizontalmente ----*/
     list-style: none;
     display: flex;
     align-items: center;
@@ -67,6 +76,7 @@ body {
 }
 
 .main-header nav ul li a {
+    /*---- Estiliza os links do menu com cor, peso da fonte e posicionamento relativo ----*/
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
@@ -75,6 +85,7 @@ body {
 }
 
 .main-header nav ul li a:not(.nav-button)::after {
+    /*---- Cria uma linha decorativa abaixo dos links do menu que aparece na animação ----*/
     content: '';
     position: absolute;
     bottom: 0;
@@ -86,11 +97,13 @@ body {
 }
 
 .main-header nav ul li a:not(.nav-button):hover::after {
+    /*---- Anima a largura da linha decorativa ao passar o mouse sobre o link ----*/
     width: 100%;
 }
 
 /* ---- BOTÃO CTA (CALL TO ACTION) ---- */
 .cta-button {
+    /*---- Define o estilo principal de botões de ação com gradiente, bordas arredondadas e transições ----*/
     background: var(--primary-gradient);
     color: var(--white);
     padding: 0.7rem 1.8rem;
@@ -104,28 +117,33 @@ body {
 }
 
 .cta-button:hover {
+    /*---- Adiciona um efeito de elevação no botão ao passar o mouse ----*/
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* ---- SEÇÃO DE AGENDAMENTO ---- */
 .schedule-page-section {
+    /*---- Define o espaçamento e a cor de fundo para a seção de agendamento ----*/
     padding: 5rem 0;
     background-color: var(--bg-light);
 }
 
 .page-title {
+    /*---- Estiliza o contêiner do título da página, centralizando o texto ----*/
     text-align: center;
     margin-bottom: 3rem;
 }
 
 .page-title h1 {
+    /*---- Estiliza o texto do título principal H1 ----*/
     font-size: 2.8rem;
     color: var(--dark-primary);
     margin-bottom: 0.5rem;
 }
 
 .page-title p {
+    /*---- Estiliza o parágrafo de subtítulo, limitando sua largura e centralizando ----*/
     font-size: 1.1rem;
     color: var(--text-secondary);
     max-width: 600px;
@@ -134,6 +152,7 @@ body {
 
 /* ---- FORMULÁRIO DE AGENDAMENTO ---- */
 .schedule-form-wrapper {
+    /*---- Cria o contêiner do formulário com fundo gradiente, sombra e bordas arredondadas ----*/
     max-width: 700px;
     margin: 0 auto;
     background: var(--primary-gradient);
@@ -144,12 +163,14 @@ body {
 }
 
 .form-group {
+    /*---- Define o espaçamento e o posicionamento relativo para cada campo do formulário ----*/
     position: relative;
     margin-bottom: 2.5rem;
 }
 
 .form-group input,
 .form-group select {
+    /*---- Estiliza os campos de input e select com fundo transparente e borda inferior ----*/
     width: 100%;
     padding: 0.8rem 0.2rem;
     border: none;
@@ -165,16 +186,19 @@ body {
 }
 
 .form-group input::placeholder {
+    /*---- Define a cor do texto de placeholder dos campos de input ----*/
     color: rgba(255, 255, 255, 0.7);
 }
 
 .form-group input:focus,
 .form-group select:focus {
+    /*---- Remove o contorno padrão e muda a cor da borda inferior quando o campo está focado ----*/
     outline: none;
     border-bottom-color: var(--white);
 }
 
 .form-group label {
+    /*---- Estiliza e posiciona os rótulos (labels) para o efeito de flutuação ----*/
     position: absolute;
     top: 0.8rem;
     left: 0.2rem;
@@ -185,14 +209,16 @@ body {
     z-index: 0;
 }
 
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label {
+.form-group input:focus+label,
+.form-group input:not(:placeholder-shown)+label {
+    /*---- Anima o rótulo para a posição superior quando o campo está focado ou preenchido ----*/
     top: -1.2rem;
     font-size: 0.85rem;
     color: var(--white);
 }
 
 .form-group select {
+    /*---- Remove a aparência padrão do select e adiciona uma seta personalizada ----*/
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffffff' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
@@ -202,34 +228,35 @@ body {
 }
 
 .form-group select:required:invalid {
+    /*---- Define a cor do texto do select quando a opção padrão (inválida) está selecionada ----*/
     color: rgba(255, 255, 255, 0.7);
 }
 
 .form-group select option {
+    /*---- Estiliza as opções da lista suspensa do select ----*/
     color: var(--text-primary);
     background-color: var(--white);
 }
 
 /* ===== NOVA LÓGICA SEM JS PARA LABELS DE SELECTS ===== */
-/* Por padrão, o label está posicionado acima, mas invisível */
 .select-group > label {
+    /*---- Posiciona o rótulo do select acima do campo e o torna invisível por padrão ----*/
     opacity: 0;
     top: -1.2rem;
     font-size: 0.85rem;
-    transition: opacity 0.3s ease; /* Adiciona transição suave */
-    z-index: 2; /* Garante que o label fique acima da linha */
+    transition: opacity 0.3s ease;
+    z-index: 2;
 }
 
-/* O label aparece se:
-   1. O grupo está em foco (o usuário clicou no select).
-   2. O grupo :has() um select com uma opção selecionada que NÃO está desabilitada. */
 .select-group:focus-within > label,
 .select-group:has(select option:checked:not([disabled])) > label {
+    /*---- Torna o rótulo do select visível quando ele está em foco ou uma opção é selecionada ----*/
     opacity: 1;
 }
 
 /* ===== CORREÇÃO PARA O CAMPO DE DATA ===== */
 .form-group:has(input[type="datetime-local"]) > label {
+    /*---- Força o rótulo do campo de data e hora a ficar sempre na posição superior ----*/
     top: -1.2rem;
     font-size: 0.85rem;
     color: var(--white);
@@ -238,6 +265,7 @@ body {
 }
 
 .form-button {
+    /*---- Estiliza o botão de envio do formulário ----*/
     width: 100%;
     padding: 0.9rem 1.8rem;
     margin-top: 1rem;
@@ -249,6 +277,7 @@ body {
 }
 
 .form-button:hover {
+    /*---- Adiciona um efeito de elevação no botão do formulário ao passar o mouse ----*/
     background: var(--bg-light);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transform: translateY(-3px);
@@ -256,6 +285,7 @@ body {
 
 /* ---- RODAPÉ ---- */
 #contact {
+    /*---- Estiliza a seção do rodapé com cor de fundo, cor do texto e espaçamento ----*/
     background-color: var(--dark-primary);
     color: rgba(255, 255, 255, 0.8);
     padding: 4rem 0 0;
@@ -263,6 +293,7 @@ body {
 }
 
 .footer-grid {
+    /*---- Cria um layout em grade responsivo para as colunas do rodapé ----*/
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
@@ -271,30 +302,57 @@ body {
 
 .footer-col h3,
 .footer-col h4 {
+    /*---- Estiliza os títulos (H3 e H4) dentro das colunas do rodapé ----*/
     color: var(--white);
     margin-bottom: 1rem;
 }
 
-.footer-col h3 { font-size: 1.5rem; }
-.footer-col h4 { font-size: 1.1rem; font-weight: 500; }
-.footer-col p { margin-bottom: 0.5rem; }
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 0.5rem; }
+.footer-col h3 {
+    /*---- Define o tamanho da fonte para o H3 do rodapé ----*/
+    font-size: 1.5rem;
+}
+
+.footer-col h4 {
+    /*---- Define o tamanho e peso da fonte para o H4 do rodapé ----*/
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.footer-col p {
+    /*---- Adiciona uma margem inferior aos parágrafos do rodapé ----*/
+    margin-bottom: 0.5rem;
+}
+
+.footer-col ul {
+    /*---- Remove os marcadores de lista nas listas do rodapé ----*/
+    list-style: none;
+}
+
+.footer-col ul li {
+    /*---- Adiciona uma margem inferior aos itens de lista do rodapé ----*/
+    margin-bottom: 0.5rem;
+}
 
 .footer-col a {
+    /*---- Estiliza os links do rodapé, removendo o sublinhado e definindo a cor ----*/
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-col a:hover {
+    /*---- Altera a cor e adiciona um sublinhado ao passar o mouse sobre os links do rodapé ----*/
     color: var(--white);
     text-decoration: underline;
 }
 
-address { font-style: normal; }
+address {
+    /*---- Remove o estilo itálico padrão da tag de endereço ----*/
+    font-style: normal;
+}
 
 .footer-bottom {
+    /*---- Estiliza a parte inferior do rodapé (copyright) com uma borda superior ----*/
     text-align: center;
     padding: 1.5rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -304,11 +362,37 @@ address { font-style: normal; }
 
 /* ---- RESPONSIVIDADE ---- */
 @media (max-width: 768px) {
-    .page-title h1 { font-size: 2.2rem; }
-    .schedule-page-section { padding: 3rem 0; }
-    .schedule-form-wrapper { padding: 2rem 1.5rem; }
-    .main-header nav .nav-container { flex-direction: column; gap: 1.5rem; }
-    .main-header nav ul { flex-direction: column; gap: 1rem; padding-top: 1rem; }
-    .cta-button.nav-button { display: block; width: 100%; }
-    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .page-title h1 {
+        /*---- Diminui o tamanho da fonte do título principal em telas menores ----*/
+        font-size: 2.2rem;
+    }
+    .schedule-page-section {
+        /*---- Reduz o espaçamento vertical da seção de agendamento em telas menores ----*/
+        padding: 3rem 0;
+    }
+    .schedule-form-wrapper {
+        /*---- Reduz o espaçamento interno do formulário em telas menores ----*/
+        padding: 2rem 1.5rem;
+    }
+    .main-header nav .nav-container {
+        /*---- Empilha os itens do cabeçalho verticalmente em telas menores ----*/
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .main-header nav ul {
+        /*---- Empilha os itens do menu verticalmente em telas menores ----*/
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 1rem;
+    }
+    .cta-button.nav-button {
+        /*---- Faz o botão do menu ocupar a largura total em telas menores ----*/
+        display: block;
+        width: 100%;
+    }
+    .footer-grid {
+        /*---- Empilha as colunas do rodapé e centraliza o texto em telas menores ----*/
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
 }

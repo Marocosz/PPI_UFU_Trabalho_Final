@@ -1,5 +1,6 @@
 /* ---- VARIÁVEIS DE COR E CONFIGURAÇÕES GERAIS ---- */
 :root {
+    /*---- Define variáveis CSS globais para cores e gradientes reutilizáveis no projeto ----*/
     --primary-gradient: linear-gradient(90deg, #6E9B90 0%, #A3C9A8 100%);
     --dark-primary: #3A4F41;
     --text-primary: #333A40;
@@ -11,12 +12,14 @@
 }
 
 * {
+    /*---- Reseta a margem e o preenchimento de todos os elementos e ajusta o modelo de caixa ----*/
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
+    /*---- Define a fonte, cor de fundo, cor do texto e altura da linha para todo o corpo da página ----*/
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-light);
     color: var(--text-primary);
@@ -25,6 +28,7 @@ body {
 
 /* ===== BARRA DE NAVEGAÇÃO (CORRIGIDA) ===== */
 .main-header {
+    /*---- Estiliza o cabeçalho principal, tornando-o fixo no topo com uma sombra ----*/
     background: var(--white);
     padding: 1rem 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
@@ -34,6 +38,7 @@ body {
 }
 
 .main-header nav .nav-container {
+    /*---- Organiza o conteúdo da navegação (logo e menu) com espaçamento e alinhamento ----*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,6 +48,7 @@ body {
 }
 
 .main-header .logo {
+    /*---- Define o estilo do texto do logotipo, garantindo que não quebre a linha ----*/
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--dark-primary);
@@ -51,6 +57,7 @@ body {
 }
 
 .main-header nav ul {
+    /*---- Estiliza a lista do menu, removendo marcadores e alinhando os itens horizontalmente ----*/
     list-style: none;
     display: flex;
     align-items: center;
@@ -58,6 +65,7 @@ body {
 }
 
 .main-header nav ul li a {
+    /*---- Estiliza os links do menu com cor, peso da fonte e posicionamento relativo ----*/
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
@@ -66,6 +74,7 @@ body {
 }
 
 .main-header nav ul li a:not(.nav-button)::after {
+    /*---- Cria uma linha decorativa abaixo dos links do menu para animação ----*/
     content: '';
     position: absolute;
     bottom: 0;
@@ -77,10 +86,12 @@ body {
 }
 
 .main-header nav ul li a:not(.nav-button):hover::after {
+    /*---- Anima a largura da linha decorativa ao passar o mouse sobre o link ----*/
     width: 100%;
 }
 
 .cta-button {
+    /*---- Define o estilo principal de botões de ação com gradiente e bordas arredondadas ----*/
     background: var(--primary-gradient);
     color: var(--white);
     padding: 0.7rem 1.8rem;
@@ -94,15 +105,17 @@ body {
 }
 
 .cta-button:hover {
+    /*---- Adiciona um efeito de elevação no botão ao passar o mouse ----*/
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* ==================================================================
-  ESTILOS PARA A PÁGINA INTERNA (EQUIPE)
+  ESTILOS PARA A PÁGINA INTERNA (EQUIPE)
 ================================================================== */
 
 .split-container {
+    /*---- Define o contêiner principal da página, dividindo-o em colunas com layout flexível ----*/
     display: flex;
     max-width: 1400px;
     margin: 3rem auto;
@@ -111,6 +124,7 @@ body {
 }
 
 .team-column {
+    /*---- Estiliza cada coluna, com fundo branco, espaçamento, bordas arredondadas e sombra ----*/
     flex: 1;
     background-color: var(--white);
     padding: 2rem;
@@ -119,6 +133,7 @@ body {
 }
 
 .team-column h2 {
+    /*---- Estiliza os títulos das colunas com uma borda inferior ----*/
     font-size: 1.75rem;
     color: var(--dark-primary);
     margin-bottom: 2rem;
@@ -127,12 +142,14 @@ body {
 }
 
 .card-list {
+    /*---- Organiza os cards em uma lista vertical com espaçamento entre eles ----*/
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
 .team-card {
+    /*---- Estiliza o contêiner base para cada card de membro da equipe ----*/
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 1.5rem;
@@ -140,11 +157,13 @@ body {
 }
 
 .team-card:hover {
+    /*---- Adiciona um efeito de destaque ao card ao passar o mouse ----*/
     border-color: #6E9B90;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .team-card h3 {
+    /*---- Estiliza o nome do membro da equipe dentro do card ----*/
     margin: 0;
     color: var(--text-primary);
     font-size: 1.25rem;
@@ -152,6 +171,7 @@ body {
 }
 
 .employee-card .role {
+    /*---- Estiliza o cargo do funcionário ----*/
     display: block;
     color: var(--text-secondary);
     font-weight: 500;
@@ -160,12 +180,14 @@ body {
 }
 
 .details-list {
+    /*---- Remove os estilos padrão da lista de detalhes ----*/
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .details-list li {
+    /*---- Estiliza cada item da lista de detalhes com layout flexível e borda inferior ----*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -175,15 +197,18 @@ body {
 }
 
 .details-list li:last-child {
+    /*---- Remove a borda do último item da lista ----*/
     border-bottom: none;
 }
 
 .details-list li strong {
+    /*---- Estiliza o texto em negrito (título do detalhe) na lista ----*/
     color: var(--text-secondary);
     font-weight: 500;
 }
 
 .doctor-card .specialty {
+    /*---- Estiliza a especialidade do médico ----*/
     display: block;
     font-size: 1rem;
     font-weight: 500;
@@ -192,6 +217,7 @@ body {
 }
 
 .doctor-card .crm {
+    /*---- Estiliza a informação do CRM do médico ----*/
     display: block;
     font-size: 0.9rem;
     color: var(--text-secondary);
@@ -200,16 +226,19 @@ body {
 /* --- Media Query para Responsividade --- */
 @media (max-width: 992px) {
     .split-container {
+        /*---- Empilha as colunas verticalmente em telas de tablet ----*/
         flex-direction: column;
     }
 
     .main-header nav .nav-container {
+        /*---- Garante que o contêiner da navegação ocupe toda a largura em tablets ----*/
         max-width: 100%;
     }
 }
 
 @media (max-width: 768px) {
     .main-header nav ul {
+        /*---- Esconde o menu de navegação em telas de celular (para um futuro menu hambúrguer) ----*/
         display: none;
     }
 }

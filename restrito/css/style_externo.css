@@ -1,5 +1,6 @@
 /* ---- VARIÁVEIS DE COR E CONFIGURAÇÕES GERAIS ---- */
 :root {
+    /*---- Define variáveis CSS globais para cores e gradientes reutilizáveis no projeto ----*/
     --primary-gradient: linear-gradient(90deg, #6E9B90 0%, #A3C9A8 100%);
     --dark-primary: #3A4F41;
     --text-primary: #333A40;
@@ -11,12 +12,14 @@
 }
 
 * {
+    /*---- Reseta a margem e o preenchimento de todos os elementos e ajusta o modelo de caixa ----*/
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
+    /*---- Define a fonte, cor de fundo, cor do texto e altura da linha para todo o corpo da página ----*/
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-light);
     color: var(--text-primary);
@@ -25,6 +28,7 @@ body {
 
 /* ===== BARRA DE NAVEGAÇÃO (CORRIGIDA) ===== */
 .main-header {
+    /*---- Estiliza o cabeçalho principal, tornando-o fixo no topo com uma sombra ----*/
     background: var(--white);
     padding: 1rem 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
@@ -34,6 +38,7 @@ body {
 }
 
 .main-header nav .nav-container {
+    /*---- Organiza o conteúdo da navegação (logo e menu) com espaçamento e alinhamento ----*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,6 +48,7 @@ body {
 }
 
 .main-header .logo {
+    /*---- Define o estilo do texto do logotipo, garantindo que não quebre a linha ----*/
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--dark-primary);
@@ -51,6 +57,7 @@ body {
 }
 
 .main-header nav ul {
+    /*---- Estiliza a lista do menu, removendo marcadores e alinhando os itens horizontalmente ----*/
     list-style: none;
     display: flex;
     align-items: center;
@@ -58,6 +65,7 @@ body {
 }
 
 .main-header nav ul li a {
+    /*---- Estiliza os links do menu com cor, peso da fonte e posicionamento relativo ----*/
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
@@ -66,6 +74,7 @@ body {
 }
 
 .main-header nav ul li a:not(.nav-button)::after {
+    /*---- Cria uma linha decorativa abaixo dos links do menu para animação ----*/
     content: '';
     position: absolute;
     bottom: 0;
@@ -77,10 +86,12 @@ body {
 }
 
 .main-header nav ul li a:not(.nav-button):hover::after {
+    /*---- Anima a largura da linha decorativa ao passar o mouse sobre o link ----*/
     width: 100%;
 }
 
 .cta-button {
+    /*---- Define o estilo principal de botões de ação com gradiente e bordas arredondadas ----*/
     background: var(--primary-gradient);
     color: var(--white);
     padding: 0.7rem 1.8rem;
@@ -94,15 +105,17 @@ body {
 }
 
 .cta-button:hover {
+    /*---- Adiciona um efeito de elevação no botão ao passar o mouse ----*/
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* ==================================================================
-  ESTILOS PARA A PÁGINA EXTERNA (PAINEL DE CONTROLE)
+  ESTILOS PARA A PÁGINA EXTERNA (PAINEL DE CONTROLE)
 ================================================================== */
 
 .admin-container {
+    /*---- Define o contêiner principal para a página administrativa, com layout flexível e espaçamento ----*/
     max-width: 1200px;
     margin: 3rem auto;
     padding: 0 2rem;
@@ -112,6 +125,7 @@ body {
 }
 
 .data-section h2 {
+    /*---- Estiliza os títulos das seções de dados com uma borda inferior ----*/
     font-size: 2rem;
     color: var(--dark-primary);
     margin-bottom: 1.5rem;
@@ -120,10 +134,12 @@ body {
 }
 
 .table-wrapper {
+    /*---- Garante que a tabela seja rolável horizontalmente em telas pequenas ----*/
     overflow-x: auto;
 }
 
 .data-table {
+    /*---- Estiliza a tabela de dados com fundo branco, bordas arredondadas e sombra ----*/
     width: 100%;
     border-collapse: collapse;
     background-color: var(--white);
@@ -132,13 +148,16 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-.data-table th, .data-table td {
+.data-table th,
+.data-table td {
+    /*---- Define o espaçamento e a borda inferior para as células do cabeçalho e do corpo da tabela ----*/
     padding: 1rem 1.25rem;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
 }
 
 .data-table thead th {
+    /*---- Estiliza o cabeçalho da tabela com fundo escuro e texto em maiúsculas ----*/
     background-color: var(--dark-primary);
     color: var(--white);
     font-weight: 600;
@@ -148,21 +167,25 @@ body {
 }
 
 .data-table tbody tr:last-child td {
+    /*---- Remove a borda inferior da última linha da tabela ----*/
     border-bottom: none;
 }
 
 .data-table tbody tr:hover {
+    /*---- Adiciona um efeito de destaque ao passar o mouse sobre as linhas da tabela ----*/
     background-color: #f9fbfb;
     cursor: pointer;
 }
 
 .message-list {
+    /*---- Define um layout de grade para a lista de mensagens ----*/
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
 }
 
 .message-card {
+    /*---- Estiliza cada card de mensagem com fundo branco, sombra e transições ----*/
     background-color: var(--white);
     padding: 1.5rem;
     border-radius: 8px;
@@ -171,11 +194,13 @@ body {
 }
 
 .message-card:hover {
+    /*---- Adiciona um efeito de elevação e aumenta a sombra ao passar o mouse sobre um card de mensagem ----*/
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(58, 79, 65, 0.15);
 }
 
 .message-header {
+    /*---- Estiliza o cabeçalho do card de mensagem com layout flexível e borda inferior ----*/
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -187,21 +212,25 @@ body {
 }
 
 .message-header .author {
+    /*---- Estiliza o nome do autor no cabeçalho da mensagem ----*/
     font-weight: 600;
     color: var(--text-primary);
 }
 
 .message-header .contact-info {
+    /*---- Estiliza as informações de contato no cabeçalho da mensagem ----*/
     font-size: 0.9rem;
     color: var(--text-secondary);
 }
 
 .message-body p {
+    /*---- Estiliza o corpo da mensagem com uma altura de linha confortável ----*/
     color: var(--text-primary);
     line-height: 1.7;
 }
 
 .message-footer {
+    /*---- Estiliza o rodapé da mensagem, alinhando o texto à direita ----*/
     margin-top: 1.5rem;
     text-align: right;
     font-size: 0.85rem;
