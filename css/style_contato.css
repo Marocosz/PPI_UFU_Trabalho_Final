@@ -67,7 +67,7 @@ body {
     text-decoration: none;
 }
 
-.main-header nav ul {
+.main-header .nav-links {
     /*---- Estiliza a lista do menu, removendo marcadores e alinhando os itens horizontalmente ----*/
     list-style: none;
     display: flex;
@@ -75,7 +75,7 @@ body {
     gap: 2rem;
 }
 
-.main-header nav ul li a {
+.main-header .nav-links li a {
     /*---- Estiliza os links do menu com cor, peso da fonte e posicionamento relativo ----*/
     color: var(--text-primary);
     text-decoration: none;
@@ -84,7 +84,7 @@ body {
     padding-bottom: 0.5rem;
 }
 
-.main-header nav ul li a:not(.nav-button)::after {
+.main-header .nav-links li a:not(.nav-button)::after {
     /*---- Cria uma linha decorativa abaixo dos links do menu para animação ----*/
     content: '';
     position: absolute;
@@ -96,9 +96,30 @@ body {
     transition: width 0.4s ease;
 }
 
-.main-header nav ul li a:not(.nav-button):hover::after {
+.main-header .nav-links li a:not(.nav-button):hover::after {
     /*---- Anima a largura da linha decorativa ao passar o mouse sobre o link ----*/
     width: 100%;
+}
+
+/* ---- MENU HAMBÚRGUER (MÓVEL) - NOVO ---- */
+.hamburger-menu {
+    /*---- Esconde o ícone em telas de desktop ----*/
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001; /* Garante que fique acima de outros elementos */
+}
+
+.hamburger-menu span {
+    /*---- Estiliza as três linhas do ícone hambúrguer ----*/
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark-primary); /* Cor para o cabeçalho branco */
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
 }
 
 /* ===== BOTÃO CTA (CALL TO ACTION)========== */
@@ -344,7 +365,7 @@ textarea {
 }
 
 
-/* ---- RESPONSIVIDADE ---- */
+/* ---- RESPONSIVIDADE (ATUALIZADO) ---- */
 @media (max-width: 992px) {
     .contact-layout {
         /*---- Altera o layout de contato para uma única coluna em telas menores ----*/
@@ -363,17 +384,65 @@ textarea {
         padding: 4rem 0;
     }
 
-    .main-header nav .nav-container {
-        /*---- Empilha os itens do cabeçalho verticalmente em telas de celular ----*/
-        flex-direction: column;
-        gap: 1.5rem;
+    /* --- LÓGICA DO MENU HAMBÚRGUER (NOVO) --- */
+    .hamburger-menu {
+        /*---- Mostra o botão hambúrguer em telas de celular ----*/
+        display: block;
     }
-    .main-header nav ul {
-        /*---- Empilha os itens do menu verticalmente em telas de celular ----*/
+
+    .main-header .nav-links {
+        /*---- Transforma a navegação em um painel de sobreposição ----*/
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--dark-primary);
         flex-direction: column;
-        gap: 1rem;
-        padding-top: 1rem;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
     }
+
+    .main-header .nav-links.active {
+        /*---- Mostra o menu quando a classe 'active' é aplicada via JS ----*/
+        transform: translateX(0);
+    }
+    
+    .main-header .nav-links li a {
+        /*---- Aumenta o tamanho e muda a cor dos links no menu móvel ----*/
+        font-size: 1.5rem;
+        color: var(--white);
+    }
+    
+    .main-header .nav-links li a:not(.nav-button)::after {
+        /*---- Ajusta a cor do sublinhado para o fundo escuro do menu ----*/
+        background: var(--white);
+    }
+
+    .main-header .nav-links .nav-button {
+        /*---- Estiliza o botão de CTA no menu móvel ----*/
+        padding: 0.8rem 2rem;
+        font-size: 1.2rem;
+    }
+
+    /*---- Animação do ícone hambúrguer para um 'X' ----*/
+    .hamburger-menu.active span {
+        /*---- Muda a cor das linhas do ícone para branco no menu ativo ----*/
+        background-color: var(--white);
+    }
+    .hamburger-menu.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
 
     #main-footer .footer-content {
         /*---- Centraliza e empilha o conteúdo do rodapé em telas de celular ----*/
