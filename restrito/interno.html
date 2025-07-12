@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Interno - Equipe</title>
 
-    <link rel="stylesheet" href="style_interno.css">
+    <link rel="icon" type="image/png" href="../images/icon_verde_final.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,7 +21,14 @@
         <nav>
             <div class="nav-container">
                 <a href="cadastro.html" class="logo">Painel Administrativo Innovare</a>
-                <ul>
+                
+                <button class="hamburger-menu" aria-label="Abrir Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-links">
                     <li><a href="/index.html">Voltar ao Site</a></li>
                     <li><a href="#" class="cta-button nav-button">Sair</a></li>
                 </ul>
@@ -33,11 +41,11 @@
         <section class="team-column">
             <h2>Funcionários</h2>
             <div class="card-list">
-                <div class="team-card employee-card">
+                <div class="team-card employee-card"> 
                     <h3>Carla Schmidt</h3>
                     <span class="role">Recepcionista Chefe</span>
                     <ul class="details-list">
-                        <li><strong>Email:</strong><span>carla.s@clinicaserenidade.com</span></li>
+                        <li><strong>Email:</strong><span>carla.s@innovarecenter.com</span></li>
                         <li><strong>Senha:</strong><span>••••••••</span></li>
                         <li><strong>Estado Civil:</strong><span>Casada</span></li>
                         <li><strong>Nascimento:</strong><span>15/03/1990</span></li>
@@ -47,7 +55,7 @@
                     <h3>Bruno Alves</h3>
                     <span class="role">Administrativo</span>
                     <ul class="details-list">
-                        <li><strong>Email:</strong><span>bruno.a@clinicaserenidade.com</span></li>
+                        <li><strong>Email:</strong><span>bruno.a@innovarecenter.com</span></li>
                         <li><strong>Senha:</strong><span>••••••••</span></li>
                         <li><strong>Estado Civil:</strong><span>Solteiro</span></li>
                         <li><strong>Nascimento:</strong><span>22/11/1995</span></li>
@@ -57,7 +65,7 @@
                     <h3>Mariana Lima</h3>
                     <span class="role">Enfermeira</span>
                     <ul class="details-list">
-                        <li><strong>Email:</strong><span>mariana.l@clinicaserenidade.com</span></li>
+                        <li><strong>Email:</strong><span>mariana.l@innovarecenter.com</span></li>
                         <li><strong>Senha:</strong><span>••••••••</span></li>
                         <li><strong>Estado Civil:</strong><span>Solteira</span></li>
                         <li><strong>Nascimento:</strong><span>10/01/1992</span></li>
@@ -93,7 +101,8 @@
         </section>
 
     </main>
+    
+    <script src="js/script_cadastro.js"></script>
 
 </body>
-
 </html>

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acesso Restrito - Innovare Medical Center</title>
 
+    <link rel="icon" type="image/png" href="../images/icon_verde_final.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -21,9 +23,16 @@
         <nav>
             <div class="nav-container">
                 <a href="cadastro.html" class="logo">Painel Administrativo Innovare</a>
-                <ul>
+                
+                <button class="hamburger-menu" aria-label="Abrir Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-links">
                     <li><a href="/index.html">Voltar ao Site</a></li>
-                    <li><a href="#" class="cta-button nav-button">Sair</a></li>
+                    <li><a href="../login.html" class="cta-button nav-button">Sair</a></li>
                 </ul>
             </div>
         </nav>
@@ -130,6 +139,7 @@
         </div>
     </div>
 
+    <script src="js/script_index.js"></script>
     <script src="js/script_cadastro.js"></script>
 </body>
 
