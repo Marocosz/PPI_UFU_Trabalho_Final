@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Adiciona a funcionalidade de logout ao botão "Sair"
-    // NOTA: Para funcionar melhor, adicione id="logout-btn" ao seu link "Sair" no HTML
     const logoutButton = document.getElementById('logout-btn');
 
     if (logoutButton) {
