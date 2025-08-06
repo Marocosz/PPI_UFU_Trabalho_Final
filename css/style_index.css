@@ -38,53 +38,59 @@ body {
 }
 
 /* ---- SEÇÃO HERO E NAVEGAÇÃO ---- */
+/* ALTERAÇÃO 1: Substituído flex por position: relative para centralizar conteúdo */
 .hero-section {
-    /*---- Define a altura, imagem de fundo com sobreposição, cor do texto e layout flexível para a seção principal ----*/
-    min-height: 95vh; /* Alterado para min-height para maior robustez */
+    min-height: 95vh;
     background-color: var(--image-placeholder-bg);
     background-image: linear-gradient(rgba(58, 79, 65, 0.815), rgba(7, 83, 32, 0.7)), url('https://via.placeholder.com/1920x1080');
     background-size: cover;
     background-position: center;
     color: var(--white);
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    /* Base para o posicionamento absoluto do conteúdo */
 }
 
 nav {
-    /*---- Define o espaçamento interno para a barra de navegação ----*/
     padding: 1.5rem 0;
     position: relative;
     z-index: 1000;
 }
 
+/* ALTERAÇÃO 2: Navegação com posicionamento absoluto */
 nav .nav-container {
-    /*---- Organiza o conteúdo da navegação com espaçamento entre os itens e alinhamento ----*/
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    position: relative;
+    height: 50px;
+    /* Altura fixa para alinhar os itens */
 }
 
 .logo {
-    /*---- Estiliza o texto do logotipo na navegação ----*/
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--white);
     text-decoration: none;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .nav-links {
-    /*---- Remove os marcadores de lista e alinha os itens do menu horizontalmente ----*/
     list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav-links li {
+    display: inline-block;
+    /* Alinha horizontalmente */
+    vertical-align: middle;
+    margin-left: 2rem;
+    /* Substitui 'gap' */
 }
 
 .nav-links li a {
-    /*---- Estiliza os links do menu com cor, peso da fonte e posicionamento relativo ----*/
     color: var(--white);
     text-decoration: none;
     font-weight: 500;
@@ -93,7 +99,6 @@ nav .nav-container {
 }
 
 .nav-links li a:not(.nav-button)::after {
-    /*---- Cria uma linha decorativa abaixo dos links do menu para animação ----*/
     content: '';
     position: absolute;
     bottom: 0;
@@ -105,12 +110,10 @@ nav .nav-container {
 }
 
 .nav-links li a:not(.nav-button):hover::after {
-    /*---- Anima a largura da linha decorativa ao passar o mouse sobre o link ----*/
     width: 100%;
 }
 
 .cta-button {
-    /*---- Define o estilo principal de botões de ação com gradiente e bordas arredondadas ----*/
     background: var(--primary-gradient);
     color: var(--white);
     padding: 0.8rem 1.8rem;
@@ -123,52 +126,53 @@ nav .nav-container {
 }
 
 .cta-button:hover {
-    /*---- Adiciona um efeito de elevação no botão ao passar o mouse ----*/
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* ALTERAÇÃO 3: Conteúdo Hero centralizado com posicionamento absoluto */
 .hero-content {
-    /*---- Centraliza o conteúdo principal da seção hero na vertical e horizontal ----*/
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    top: 55%;
+    /* Levemente abaixo do meio para compensar a navegação */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    /* Evita que o texto encoste nas bordas */
     text-align: center;
     padding: 0 1rem;
 }
 
 .hero-content h1 {
-    /*---- Estiliza o título principal (H1) da seção hero ----*/
     font-size: 3.5rem;
     font-weight: 700;
     max-width: 800px;
     line-height: 1.2;
     margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-content p {
-    /*---- Estiliza o parágrafo de subtítulo da seção hero ----*/
     font-size: 1.2rem;
     font-weight: 300;
     max-width: 600px;
     margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ---- MENU HAMBÚRGUER (MÓVEL) ---- */
 .hamburger-menu {
-    /*---- Esconde o botão hambúrguer em telas de desktop ----*/
     display: none;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
-    z-index: 1001; /* Garante que fique acima de outros elementos */
+    z-index: 1001;
 }
 
 .hamburger-menu span {
-    /*---- Estiliza as três linhas do ícone hambúrguer ----*/
     display: block;
     width: 25px;
     height: 3px;
@@ -179,12 +183,10 @@ nav .nav-container {
 
 /* ---- SEÇÕES GERAIS ---- */
 section {
-    /*---- Define um espaçamento vertical padrão para todas as seções ----*/
     padding: 6rem 0;
 }
 
 .section-title {
-    /*---- Estiliza um título padrão para as seções, centralizado ----*/
     text-align: center;
     font-size: 2.5rem;
     font-weight: 700;
@@ -194,50 +196,57 @@ section {
 
 /* ---- SEÇÃO SOBRE NÓS ---- */
 .about-section {
-    /*---- Define o fundo da seção "Sobre Nós" como branco ----*/
     background: var(--white);
 }
 
+/* ALTERAÇÃO 4: Conteúdo 'Sobre' com inline-block */
 .about-content {
-    /*---- Organiza o conteúdo da seção "Sobre" em duas colunas com espaçamento ----*/
-    display: flex;
-    align-items: center;
-    gap: 4rem;
+    font-size: 0;
+    /* Remove espaço em branco entre elementos */
 }
 
 .about-content .text-content {
-    /*---- Faz com que a coluna de texto ocupe o espaço flexível disponível ----*/
-    flex: 1;
+    display: inline-block;
+    width: 55%;
+    /* Define a largura da coluna de texto */
+    vertical-align: middle;
+    font-size: 1rem;
+    /* Restaura o tamanho da fonte */
+    padding-right: 2rem;
+    /* Simula o 'gap' */
 }
 
 .about-content h2 {
-    /*---- Estiliza o título H2 dentro da seção "Sobre" ----*/
     font-size: 2.5rem;
     color: var(--dark-primary);
     margin-bottom: 1.5rem;
 }
 
 .about-content .image-placeholder {
-    /*---- Define o estilo do espaço reservado para a imagem, incluindo proporção e cor de fundo ----*/
-    flex-basis: 45%;
+    display: inline-block;
+    width: 45%;
+    /* Define a largura da coluna da imagem */
+    vertical-align: middle;
     height: auto;
     aspect-ratio: 500 / 338;
     background-color: var(--image-placeholder-bg);
     border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    font-size: 1rem;
 }
 
 .stats {
-    /*---- Organiza os itens de estatísticas horizontalmente com espaçamento ----*/
-    display: flex;
-    gap: 2rem;
     margin-top: 2rem;
 }
 
+.stat-item {
+    display: inline-block;
+    /* Alinha estatísticas horizontalmente */
+    margin-right: 2rem;
+    /* Substitui 'gap' */
+}
+
 .stat-item h3 {
-    /*---- Estiliza os números das estatísticas com um gradiente de texto ----*/
     font-size: 2rem;
     font-weight: 700;
     background: var(--primary-gradient);
@@ -248,59 +257,67 @@ section {
 }
 
 .stat-item p {
-    /*---- Estiliza o texto descritivo de cada estatística ----*/
     color: var(--text-secondary);
 }
 
 /* ---- SEÇÃO MISSÃO E VISÃO ---- */
 .mission-vision-section {
-    /*---- Define a cor de fundo da seção de Missão e Visão ----*/
     background-color: var(--white);
 }
 
+/* ALTERAÇÃO 5: Grid de Missão/Visão com inline-block */
 .mission-vision-grid {
-    /*---- Cria um layout de duas colunas para os itens de missão e visão ----*/
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    font-size: 0;
+    /* Remove espaço em branco */
+    text-align: center;
     max-width: 900px;
     margin: 0 auto;
 }
 
 .mission-vision-item {
-    /*---- Estiliza cada bloco de missão/visão com texto centralizado e espaçamento interno ----*/
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+    font-size: 1rem;
+    /* Restaura a fonte */
     text-align: center;
     padding: 2rem;
+    margin: 0 1%;
+    /* Simula o 'gap' */
 }
 
 .mission-vision-item h3 {
-    /*---- Estiliza o título H3 de cada bloco de missão/visão ----*/
     font-size: 1.4rem;
     margin-bottom: 1rem;
     color: var(--dark-primary);
 }
 
 .mission-vision-item p {
-    /*---- Estiliza o texto descritivo de cada bloco de missão/visão ----*/
     color: var(--text-secondary);
 }
 
-
 /* ---- SEÇÃO DE SERVIÇOS ---- */
 .services-section {
-    /*---- Define a cor de fundo da seção de serviços ----*/
     background-color: var(--bg-light);
 }
 
+/* ALTERAÇÃO 6: Grid de Serviços com inline-block */
 .services-grid {
-    /*---- Cria uma grade responsiva para os cards de serviços ----*/
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    font-size: 0;
+    /* Remove espaço em branco */
+    margin: 0 -1rem;
+    /* Compensa a margem dos filhos */
 }
 
 .service-card {
-    /*---- Estiliza cada card de serviço com fundo branco, sombra e bordas arredondadas ----*/
+    display: inline-block;
+    width: calc(33.333% - 2rem);
+    /* 3 colunas com margens */
+    margin: 0 1rem 2rem 1rem;
+    /* Espaçamento vertical e horizontal */
+    vertical-align: top;
+    font-size: 1rem;
+    /* Restaura a fonte */
     background: var(--white);
     padding: 2.5rem 2rem;
     border-radius: 15px;
@@ -310,94 +327,90 @@ section {
 }
 
 .service-card:hover {
-    /*---- Adiciona um efeito de elevação e aumenta a sombra ao passar o mouse sobre o card ----*/
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .service-card h3 {
-    /*---- Estiliza o título H3 de cada card de serviço ----*/
     font-size: 1.4rem;
     margin-bottom: 1rem;
     color: var(--dark-primary);
 }
 
 .service-card p {
-    /*---- Estiliza o texto descritivo de cada card de serviço ----*/
     color: var(--text-secondary);
     line-height: 1.6;
 }
 
-/* ---- RODAPÉ (Estilo Unificado) ---- */
+/* ---- RODAPÉ ---- */
 #contact {
-    /*---- Estiliza a seção do rodapé com cor de fundo escura, cor de texto e espaçamento ----*/
     background-color: var(--dark-primary);
     color: rgba(255, 255, 255, 0.8);
     padding: 5rem 0 0;
-    margin-top: 5rem; /* Ajustado para um espaçamento consistente */
+    margin-top: 5rem;
 }
 
+/* ALTERAÇÃO 7: Grid do Rodapé com inline-block */
 .footer-grid {
-    /*---- Cria um layout de grade responsivo para as colunas do rodapé ----*/
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem; /* Aumentado para melhor espaçamento */
-    padding-bottom: 3rem;
+    font-size: 0;
+    margin: 0 -1.5rem;
+    /* Compensa a margem dos filhos */
+}
+
+.footer-col {
+    display: inline-block;
+    width: calc(33.333% - 3rem);
+    /* 3 colunas com margens */
+    margin: 0 1.5rem 3rem 1.5rem;
+    /* Simula o 'gap' */
+    vertical-align: top;
+    font-size: 1rem;
+    /* Restaura a fonte */
 }
 
 .footer-col h3,
 .footer-col h4 {
-    /*---- Estiliza os títulos (H3 e H4) dentro das colunas do rodapé ----*/
     color: var(--white);
     margin-bottom: 1rem;
 }
 
 .footer-col h3 {
-    /*---- Define o tamanho da fonte para o H3 do rodapé ----*/
     font-size: 1.5rem;
 }
 
 .footer-col h4 {
-    /*---- Define o tamanho e peso da fonte para o H4 do rodapé ----*/
     font-size: 1.1rem;
     font-weight: 500;
 }
 
 .footer-col p {
-    /*---- Adiciona uma margem inferior aos parágrafos do rodapé ----*/
     margin-bottom: 0.5rem;
 }
 
 .footer-col ul {
-    /*---- Remove os marcadores de lista nas listas do rodapé ----*/
     list-style: none;
 }
 
 .footer-col ul li {
-    /*---- Adiciona uma margem inferior aos itens de lista do rodapé ----*/
     margin-bottom: 0.5rem;
 }
 
 .footer-col a {
-    /*---- Estiliza os links do rodapé, removendo o sublinhado e definindo a cor ----*/
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-col a:hover {
-    /*---- Altera a cor e adiciona um sublinhado ao passar o mouse sobre os links do rodapé ----*/
     color: var(--white);
     text-decoration: underline;
 }
 
 address {
-    /*---- Remove o estilo itálico padrão da tag de endereço ----*/
     font-style: normal;
 }
 
 .footer-bottom {
-    /*---- Estiliza a parte inferior do rodapé (copyright) com uma borda superior ----*/
     text-align: center;
     padding: 1.5rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -405,21 +418,17 @@ address {
     color: rgba(255, 255, 255, 0.6);
 }
 
-
-/* ---- AJUSTE FINAL PARA IMAGENS DENTRO DOS PLACEHOLDERS ---- */
+/* ---- AJUSTES FINAIS ---- */
 .image-placeholder:has(img) {
-    /*---- Remove o fundo e o preenchimento do placeholder quando ele contém uma imagem ----*/
     background: none;
     padding: 0;
 }
 
 .image-placeholder:has(img) span {
-    /*---- Esconde qualquer texto dentro do placeholder se uma imagem estiver presente ----*/
     display: none;
 }
 
 .image-placeholder img {
-    /*---- Garante que a imagem preencha o contêiner do placeholder, mantendo as bordas arredondadas ----*/
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -429,85 +438,83 @@ address {
 
 /* ---- RESPONSIVIDADE ---- */
 
-/* Tablets e Desktops Menores */
 @media (max-width: 992px) {
     .hero-content h1 {
-        /*---- Reduz o tamanho da fonte do título principal em telas de tablet ----*/
         font-size: 2.8rem;
     }
 
-    .about-content {
-        /*---- Empilha a imagem e o texto da seção "Sobre" em telas de tablet ----*/
-        flex-direction: column;
+    /* ALTERAÇÃO 8: Seção 'Sobre' responsiva sem flex */
+    .about-content .text-content,
+    .about-content .image-placeholder {
+        display: block;
+        width: 100%;
+        padding-right: 0;
         text-align: center;
     }
 
     .about-content .image-placeholder {
-        /*---- Garante que a imagem ocupe uma largura razoável e adiciona margem ----*/
-        flex-basis: auto;
         width: 80%;
         max-width: 500px;
-        margin-top: 3rem;
+        margin: 3rem auto 0 auto;
     }
 
     .stats {
-        /*---- Centraliza os itens de estatística quando o layout é alterado ----*/
-        justify-content: center;
+        text-align: center;
     }
 }
 
-/* Celulares */
 @media (max-width: 768px) {
+
+    /* ALTERAÇÃO 9: Lógica do menu mobile sem flex */
     .hamburger-menu {
-        /*---- Mostra o botão hambúrguer em telas de celular ----*/
         display: block;
     }
 
     .nav-links {
-        /*---- Transforma a navegação em um painel de sobreposição ----*/
         position: fixed;
         top: 0;
         right: 0;
         width: 100%;
         height: 100vh;
         background-color: var(--dark-primary);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
+        padding-top: 30vh;
+        text-align: center;
     }
 
     .nav-links.active {
-        /*---- Mostra o menu quando a classe 'active' é aplicada via JS ----*/
         transform: translateX(0);
     }
-    
+
+    .nav-links li {
+        display: block;
+        margin: 0;
+        padding: 1rem 0;
+    }
+
     .nav-links li a {
-        /*---- Aumenta o tamanho da fonte dos links no menu móvel ----*/
         font-size: 1.5rem;
     }
 
     .nav-links .nav-button {
-        /*---- Estiliza o botão de CTA no menu móvel ----*/
         padding: 0.8rem 2rem;
         font-size: 1.2rem;
     }
 
-    /* Animação do ícone hambúrguer para um 'X' */
     .hamburger-menu.active span:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
+
     .hamburger-menu.active span:nth-child(2) {
         opacity: 0;
     }
+
     .hamburger-menu.active span:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
 
     section {
-        /*---- Reduz o espaçamento vertical das seções em telas de celular ----*/
         padding: 4rem 0;
     }
 
@@ -515,42 +522,43 @@ address {
         font-size: 2rem;
     }
 
-    .mission-vision-grid {
-        /*---- Altera a grade de missão/visão para uma única coluna em telas de celular ----*/
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    /* ALTERAÇÃO 10: Seções com colunas empilhando */
+    .mission-vision-item,
+    .service-card,
+    .footer-col {
+        display: block;
+        width: 100%;
+        margin: 0 0 2rem 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
-    .mission-vision-item {
-        padding: 1rem;
-    }
-
+    .services-grid,
     .footer-grid {
-        /*---- Empilha as colunas e centraliza o texto no rodapé ----*/
-        grid-template-columns: 1fr;
+        margin: 0;
+    }
+
+    .footer-col {
         text-align: center;
     }
-    
-    .footer-col address, .footer-col p {
-        /* Garante que os links de email e telefone não quebrem o layout */
+
+    .footer-col address,
+    .footer-col p {
         word-wrap: break-word;
     }
 }
 
-/* Telas Muito Pequenas */
 @media (max-width: 480px) {
     .hero-content h1 {
-        /*---- Reduz ainda mais o tamanho da fonte do título principal ----*/
         font-size: 2.2rem;
     }
 
     .hero-content p {
-        /*---- Reduz o tamanho da fonte do subtítulo ----*/
         font-size: 1rem;
     }
 
-    .section-title, .about-content h2 {
-        /*---- Reduz os títulos das seções ----*/
+    .section-title,
+    .about-content h2 {
         font-size: 1.8rem;
     }
 }

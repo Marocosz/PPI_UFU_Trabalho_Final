@@ -36,37 +36,46 @@ body {
     position: sticky;
     top: 0;
     z-index: 1001;
+    min-height: 80px;
 }
 
+/* ALTERAÇÃO 1: Navegação com posicionamento absoluto */
 .main-header nav .nav-container {
-    /*---- Organiza o conteúdo da navegação (logo e menu) com espaçamento e alinhamento ----*/
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1400px; /* Ajustado para alinhar com o .split-container */
+    position: relative;
+    height: 48px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
 .main-header .logo {
-    /*---- Define o estilo do texto do logotipo, garantindo que não quebre a linha ----*/
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--dark-primary);
     text-decoration: none;
     white-space: nowrap;
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .main-header .nav-links {
-    /*---- Estiliza a lista do menu, removendo marcadores e alinhando os itens horizontalmente ----*/
     list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-header .nav-links li {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2rem;
+    /* Substitui 'gap' */
 }
 
 .main-header .nav-links li a {
-    /*---- Estiliza os links do menu com cor, peso da fonte e posicionamento relativo ----*/
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
@@ -75,7 +84,6 @@ body {
 }
 
 .main-header .nav-links li a:not(.nav-button)::after {
-    /*---- Cria uma linha decorativa abaixo dos links do menu para animação ----*/
     content: '';
     position: absolute;
     bottom: 0;
@@ -87,13 +95,11 @@ body {
 }
 
 .main-header .nav-links li a:not(.nav-button):hover::after {
-    /*---- Anima a largura da linha decorativa ao passar o mouse sobre o link ----*/
     width: 100%;
 }
 
 /* ---- BOTÃO CTA (CALL TO ACTION) ---- */
 .cta-button {
-    /*---- Define o estilo principal de botões de ação com gradiente e bordas arredondadas ----*/
     background: var(--primary-gradient);
     color: var(--white);
     padding: 0.7rem 1.8rem;
@@ -107,14 +113,12 @@ body {
 }
 
 .cta-button:hover {
-    /*---- Adiciona um efeito de elevação no botão ao passar o mouse ----*/
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* ---- MENU HAMBÚRGUER ---- */
 .hamburger-menu {
-    /*---- Esconde o menu hambúrguer em telas maiores e define estilos básicos ----*/
     display: none;
     background: transparent;
     border: none;
@@ -124,7 +128,6 @@ body {
 }
 
 .hamburger-menu span {
-    /*---- Estiliza as linhas (barras) do ícone de hambúrguer ----*/
     display: block;
     width: 25px;
     height: 3px;
@@ -134,26 +137,35 @@ body {
 }
 
 /* ---- CONTEÚDO DA PÁGINA DE EQUIPE ---- */
+/* ALTERAÇÃO 2: Substituído 'flex' por 'inline-block' nas colunas */
 .split-container {
-    /*---- Define o contêiner principal da página, dividindo-o em colunas com layout flexível ----*/
-    display: flex;
     max-width: 1400px;
     margin: 3rem auto;
     padding: 0 2rem;
-    gap: 2rem;
+    font-size: 0;
+    /* Remove espaço em branco entre colunas */
 }
 
 .team-column {
-    /*---- Estiliza cada coluna, com fundo branco, espaçamento, bordas arredondadas e sombra ----*/
-    flex: 1;
+    display: inline-block;
+    width: calc(50% - 1rem);
+    /* Define colunas de 50% com espaço de 2rem no meio */
+    vertical-align: top;
+    font-size: 1rem;
+    /* Restaura o tamanho da fonte */
     background-color: var(--white);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
 }
 
+.team-column:first-child {
+    margin-right: 2rem;
+    /* Cria o 'gap' */
+}
+
+
 .team-column h2 {
-    /*---- Estiliza os títulos das colunas com uma borda inferior ----*/
     font-size: 1.75rem;
     color: var(--dark-primary);
     margin-bottom: 2rem;
@@ -161,29 +173,26 @@ body {
     border-bottom: 1px solid var(--border-color);
 }
 
-.card-list {
-    /*---- Organiza os cards em uma lista vertical com espaçamento entre eles ----*/
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
 .team-card {
-    /*---- Estiliza o contêiner base para cada card de membro da equipe ----*/
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 1.5rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 1.5rem;
+    /* Substitui 'gap' */
 }
 
+.team-card:last-child {
+    margin-bottom: 0;
+}
+
+
 .team-card:hover {
-    /*---- Adiciona um efeito de destaque ao card ao passar o mouse ----*/
     border-color: #6E9B90;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .team-card h3 {
-    /*---- Estiliza o nome do membro da equipe dentro do card ----*/
     margin: 0;
     color: var(--text-primary);
     font-size: 1.25rem;
@@ -191,7 +200,6 @@ body {
 }
 
 .employee-card .role {
-    /*---- Estiliza o cargo do funcionário ----*/
     display: block;
     color: var(--text-secondary);
     font-weight: 500;
@@ -200,37 +208,44 @@ body {
 }
 
 .details-list {
-    /*---- Remove os estilos padrão da lista de detalhes ----*/
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
+/* ALTERAÇÃO 4: Substituído 'flex' por 'text-align: justify' */
 .details-list li {
-    /*---- Estiliza cada item da lista de detalhes com layout flexível e borda inferior ----*/
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 0.6rem 0;
     font-size: 0.9rem;
     border-bottom: 1px dashed #e0e0e0;
-    flex-wrap: wrap; /* Permite que o conteúdo quebre a linha se necessário */
+    text-align: justify;
 }
 
+.details-list li::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    /* Força o justify a funcionar em uma linha */
+}
+
+
 .details-list li:last-child {
-    /*---- Remove a borda do último item da lista ----*/
     border-bottom: none;
 }
 
+.details-list li strong,
+.details-list li span {
+    display: inline-block;
+    /* Garante que os filhos participem do justify */
+}
+
 .details-list li strong {
-    /*---- Estiliza o texto em negrito (título do detalhe) na lista ----*/
     color: var(--text-secondary);
     font-weight: 500;
-    margin-right: 0.5rem; /* Adiciona espaço entre o título e o valor */
+    margin-right: 0.5rem;
 }
 
 .doctor-card .specialty {
-    /*---- Estiliza a especialidade do médico ----*/
     display: block;
     font-size: 1rem;
     font-weight: 500;
@@ -239,7 +254,6 @@ body {
 }
 
 .doctor-card .crm {
-    /*---- Estiliza a informação do CRM do médico ----*/
     display: block;
     font-size: 0.9rem;
     color: var(--text-secondary);
@@ -247,98 +261,111 @@ body {
 
 /* ---- RESPONSIVIDADE (ATUALIZADO) ---- */
 @media (max-width: 992px) {
-    .split-container {
-        /*---- Empilha as colunas verticalmente em telas de tablet ----*/
-        flex-direction: column;
+
+    /* ALTERAÇÃO 5: Colunas empilhando verticalmente */
+    .team-column {
+        display: block;
+        width: 100%;
+    }
+
+    .team-column:first-child {
+        margin-right: 0;
+        margin-bottom: 2rem;
+        /* Adiciona o 'gap' vertical */
     }
 }
 
 @media (max-width: 768px) {
     .hamburger-menu {
-        /*---- Exibe o menu hambúrguer em telas menores ----*/
         display: block;
     }
 
+    .main-header nav .nav-container {
+        height: auto;
+    }
+
+    .main-header .logo {
+        position: static;
+        transform: none;
+        font-size: 1.2rem;
+    }
+
+    .main-header .hamburger-menu {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
     .main-header .nav-links {
-        /*---- Posiciona o menu para ocupar a tela toda quando ativo ----*/
         position: fixed;
         top: 0;
         right: 0;
         width: 100%;
         height: 100vh;
         background-color: var(--dark-primary);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
+        padding-top: 30vh;
+        text-align: center;
     }
 
     .main-header .nav-links.active {
-        /*---- Torna o menu visível ao deslizar para a tela ----*/
         transform: translateX(0);
     }
-    
+
+    .main-header .nav-links li {
+        display: block;
+        margin: 0;
+        padding: 1rem 0;
+    }
+
     .main-header .nav-links li a {
-        /*---- Ajusta o estilo dos links dentro do menu mobile ----*/
         font-size: 1.5rem;
         color: var(--white);
     }
-    
+
     .main-header .nav-links li a:not(.nav-button)::after {
-        /*---- Ajusta a cor da linha de animação para o fundo escuro ----*/
         background: var(--white);
     }
 
     .main-header .nav-links .nav-button {
-        /*---- Ajusta o estilo do botão CTA no menu mobile ----*/
         padding: 0.8rem 2rem;
         font-size: 1.2rem;
     }
 
     .hamburger-menu.active span {
-        /*---- Muda a cor das barras do ícone para branco quando o menu está ativo ----*/
         background-color: var(--white);
     }
+
     .hamburger-menu.active span:nth-child(1) {
-        /*---- Gira a primeira barra para formar o 'X' ----*/
         transform: translateY(8px) rotate(45deg);
     }
+
     .hamburger-menu.active span:nth-child(2) {
-        /*---- Esconde a barra do meio ----*/
         opacity: 0;
     }
+
     .hamburger-menu.active span:nth-child(3) {
-        /*---- Gira a terceira barra para formar o 'X' ----*/
         transform: translateY(-8px) rotate(-45deg);
-    }
-    
-    .main-header .logo {
-        /*---- Reduz o tamanho da fonte do logo para evitar quebra de linha ----*/
-        font-size: 1.2rem;
     }
 
     .main-header nav .nav-container,
     .split-container {
-        /*---- Reduz o espaçamento lateral em telas menores ----*/
         padding: 0 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .team-column {
-        /*---- Reduz o espaçamento interno das colunas em telas muito pequenas ----*/
         padding: 1.5rem;
     }
 
     .team-column h2 {
-        /*---- Reduz o tamanho da fonte dos títulos de seção ----*/
         font-size: 1.5rem;
     }
 
     .team-card {
-        /*---- Reduz o espaçamento interno dos cards ----*/
         padding: 1rem;
     }
 }

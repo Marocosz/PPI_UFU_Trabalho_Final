@@ -36,37 +36,49 @@ body {
     position: sticky;
     top: 0;
     z-index: 1001;
+    min-height: 80px;
+    /* Altura para consistência */
 }
 
+/* ALTERAÇÃO 1: Navegação com posicionamento absoluto */
 .main-header nav .nav-container {
-    /*---- Organiza o conteúdo da navegação (logo e menu) com espaçamento e alinhamento ----*/
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
+    height: 48px;
+    /* Altura do container para alinhar os filhos */
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
 .main-header .logo {
-    /*---- Define o estilo do texto do logotipo, garantindo que não quebre a linha ----*/
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--dark-primary);
     text-decoration: none;
     white-space: nowrap;
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .main-header .nav-links {
-    /*---- Estiliza a lista do menu, removendo marcadores e alinhando os itens horizontalmente ----*/
     list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-header .nav-links li {
+    display: inline-block;
+    /* Alinha os links horizontalmente */
+    vertical-align: middle;
+    margin-left: 2rem;
+    /* Substitui 'gap' */
 }
 
 .main-header .nav-links li a {
-    /*---- Estiliza os links do menu com cor, peso da fonte e posicionamento relativo ----*/
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
@@ -75,7 +87,6 @@ body {
 }
 
 .main-header .nav-links li a:not(.nav-button)::after {
-    /*---- Cria uma linha decorativa abaixo dos links do menu para animação ----*/
     content: '';
     position: absolute;
     bottom: 0;
@@ -87,13 +98,11 @@ body {
 }
 
 .main-header .nav-links li a:not(.nav-button):hover::after {
-    /*---- Anima a largura da linha decorativa ao passar o mouse sobre o link ----*/
     width: 100%;
 }
 
 /* ---- BOTÃO CTA (CALL TO ACTION) ---- */
 .cta-button {
-    /*---- Define o estilo principal de botões de ação com gradiente e bordas arredondadas ----*/
     background: var(--primary-gradient);
     color: var(--white);
     padding: 0.7rem 1.8rem;
@@ -107,14 +116,12 @@ body {
 }
 
 .cta-button:hover {
-    /*---- Adiciona um efeito de elevação no botão ao passar o mouse ----*/
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* ---- MENU HAMBÚRGUER ---- */
 .hamburger-menu {
-    /*---- Esconde o menu hambúrguer em telas maiores e define estilos básicos ----*/
     display: none;
     background: transparent;
     border: none;
@@ -124,7 +131,6 @@ body {
 }
 
 .hamburger-menu span {
-    /*---- Estiliza as linhas (barras) do ícone de hambúrguer ----*/
     display: block;
     width: 25px;
     height: 3px;
@@ -134,18 +140,23 @@ body {
 }
 
 /* ---- CONTEÚDO DA PÁGINA ADMINISTRATIVA ---- */
+/* ALTERAÇÃO 2: Removido flex, 'gap' substituído por margem no filho */
 .admin-container {
-    /*---- Define o contêiner principal para a página administrativa, com layout flexível e espaçamento ----*/
     max-width: 1200px;
     margin: 3rem auto;
     padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+}
+
+.data-section {
+    margin-bottom: 4rem;
+    /* Substitui o 'gap' do container */
+}
+
+.data-section:last-child {
+    margin-bottom: 0;
 }
 
 .data-section h2 {
-    /*---- Estiliza os títulos das seções de dados com uma borda inferior ----*/
     font-size: 2rem;
     color: var(--dark-primary);
     margin-bottom: 1.5rem;
@@ -155,13 +166,11 @@ body {
 
 /* ---- TABELA DE DADOS ---- */
 .table-wrapper {
-    /*---- Garante que a tabela seja rolável horizontalmente em telas pequenas ----*/
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 }
 
 .data-table {
-    /*---- Estiliza a tabela de dados com fundo branco, bordas arredondadas e sombra ----*/
     width: 100%;
     border-collapse: collapse;
     background-color: var(--white);
@@ -173,7 +182,6 @@ body {
 
 .data-table th,
 .data-table td {
-    /*---- Define o espaçamento, alinhamento e borda para as células da tabela ----*/
     padding: 1rem 1.25rem;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
@@ -181,7 +189,6 @@ body {
 }
 
 .data-table thead th {
-    /*---- Estiliza o cabeçalho da tabela com fundo escuro e texto em maiúsculas ----*/
     background-color: var(--dark-primary);
     color: var(--white);
     font-weight: 600;
@@ -191,71 +198,75 @@ body {
 }
 
 .data-table tbody tr:last-child td {
-    /*---- Remove a borda inferior da última linha da tabela ----*/
     border-bottom: none;
 }
 
 .data-table tbody tr:hover {
-    /*---- Adiciona um efeito de destaque ao passar o mouse sobre as linhas da tabela ----*/
     background-color: #f9fbfb;
     cursor: pointer;
 }
 
-/* ---- LISTA DE MENSAGENS ---- */
-.message-list {
-    /*---- Define um layout de grade para a lista de mensagens ----*/
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-}
 
 .message-card {
-    /*---- Estiliza cada card de mensagem com fundo branco, sombra e transições ----*/
     background-color: var(--white);
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 1.5rem;
+    /* Substitui 'gap' */
 }
 
+.message-card:last-child {
+    margin-bottom: 0;
+}
+
+
 .message-card:hover {
-    /*---- Adiciona um efeito de elevação e aumenta a sombra ao passar o mouse sobre um card de mensagem ----*/
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(58, 79, 65, 0.15);
 }
 
+/* ALTERAÇÃO 4: Substituído flex por 'text-align: justify' no cabeçalho da mensagem */
 .message-header {
-    /*---- Estiliza o cabeçalho do card de mensagem com layout flexível e borda inferior ----*/
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     border-bottom: 1px solid var(--border-color);
+    text-align: justify;
+    line-height: 1.5rem;
+    /* Ajuda no alinhamento vertical */
+}
+
+.message-header::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    /* Força o justify a funcionar em uma linha */
+}
+
+.message-header .author,
+.message-header .contact-info {
+    display: inline-block;
+    /* Permite que fiquem na mesma linha */
+    vertical-align: middle;
 }
 
 .message-header .author {
-    /*---- Estiliza o nome do autor no cabeçalho da mensagem ----*/
     font-weight: 600;
     color: var(--text-primary);
 }
 
 .message-header .contact-info {
-    /*---- Estiliza as informações de contato no cabeçalho da mensagem ----*/
     font-size: 0.9rem;
     color: var(--text-secondary);
 }
 
 .message-body p {
-    /*---- Estiliza o corpo da mensagem com uma altura de linha confortável ----*/
     color: var(--text-primary);
     line-height: 1.7;
 }
 
 .message-footer {
-    /*---- Estiliza o rodapé da mensagem, alinhando o texto à direita ----*/
     margin-top: 1.5rem;
     text-align: right;
     font-size: 0.85rem;
@@ -265,91 +276,111 @@ body {
 /* ---- RESPONSIVIDADE (ATUALIZADO) ---- */
 @media (max-width: 768px) {
     .hamburger-menu {
-        /*---- Exibe o menu hambúrguer em telas menores ----*/
         display: block;
     }
 
+    .main-header nav .nav-container {
+        height: auto;
+    }
+
+    .main-header .logo {
+        position: static;
+        transform: none;
+        font-size: 1.2rem;
+    }
+
+    .main-header .hamburger-menu {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
     .main-header .nav-links {
-        /*---- Posiciona o menu para ocupar a tela toda quando ativo ----*/
         position: fixed;
         top: 0;
         right: 0;
         width: 100%;
         height: 100vh;
         background-color: var(--dark-primary);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
+        padding-top: 30vh;
+        text-align: center;
     }
 
     .main-header .nav-links.active {
-        /*---- Torna o menu visível ao deslizar para a tela ----*/
         transform: translateX(0);
     }
-    
+
+    .main-header .nav-links li {
+        display: block;
+        margin: 0;
+        padding: 1rem 0;
+    }
+
     .main-header .nav-links li a {
-        /*---- Ajusta o estilo dos links dentro do menu mobile ----*/
         font-size: 1.5rem;
         color: var(--white);
     }
-    
+
     .main-header .nav-links li a:not(.nav-button)::after {
-        /*---- Ajusta a cor da linha de animação para o fundo escuro ----*/
         background: var(--white);
     }
 
     .main-header .nav-links .nav-button {
-        /*---- Ajusta o estilo do botão CTA no menu mobile ----*/
         padding: 0.8rem 2rem;
         font-size: 1.2rem;
     }
 
     .hamburger-menu.active span {
-        /*---- Muda a cor das barras do ícone para branco quando o menu está ativo ----*/
         background-color: var(--white);
     }
+
     .hamburger-menu.active span:nth-child(1) {
-        /*---- Gira a primeira barra para formar o 'X' ----*/
         transform: translateY(8px) rotate(45deg);
     }
+
     .hamburger-menu.active span:nth-child(2) {
-        /*---- Esconde a barra do meio ----*/
         opacity: 0;
     }
+
     .hamburger-menu.active span:nth-child(3) {
-        /*---- Gira a terceira barra para formar o 'X' ----*/
         transform: translateY(-8px) rotate(-45deg);
     }
-    
+
     .admin-container {
-        /*---- Ajusta o espaçamento do container principal em telas menores ----*/
         margin-top: 2rem;
         padding: 0 1rem;
-        gap: 3rem;
+    }
+
+    .data-section {
+        margin-bottom: 3rem;
     }
 
     .data-section h2 {
-        /*---- Reduz o tamanho da fonte dos títulos de seção ----*/
         font-size: 1.5rem;
     }
 
-    .main-header .logo {
-        /*---- Reduz o tamanho da fonte do logo para evitar quebra de linha ----*/
-        font-size: 1.2rem;
+    /* ALTERAÇÃO 5: Cabeçalho da mensagem empilhado */
+    .message-header,
+    .message-header::after {
+        text-align: left;
+        /* Reseta o justify */
+        line-height: normal;
+        width: auto;
     }
 
-    .message-header {
-        /*---- Empilha o cabeçalho da mensagem verticalmente ----*/
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
+    .message-header .author,
+    .message-header .contact-info {
+        display: block;
+        /* Empilha os itens */
+        width: 100%;
+        margin-bottom: 0.5rem;
+        /* Substitui 'gap' */
     }
 
     .message-footer {
-        /*---- Alinha o rodapé da mensagem à esquerda ----*/
         text-align: left;
         margin-top: 1rem;
     }
@@ -357,23 +388,19 @@ body {
 
 @media (max-width: 480px) {
     .main-header nav .nav-container {
-        /*---- Reduz o espaçamento lateral da barra de navegação ----*/
         padding: 0 1rem;
     }
 
     .data-table th,
     .data-table td {
-        /*---- Reduz o espaçamento interno das células da tabela ----*/
         padding: 0.75rem;
     }
 
     .message-card {
-        /*---- Reduz o espaçamento interno dos cards de mensagem ----*/
         padding: 1rem;
     }
 
     .data-section h2 {
-        /*---- Reduz ainda mais a fonte dos títulos de seção ----*/
         font-size: 1.3rem;
     }
 }

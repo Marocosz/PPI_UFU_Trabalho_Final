@@ -47,36 +47,41 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    min-height: 85px;
 }
 
 .main-header nav .nav-container {
-    /*---- Organiza o conteúdo da navegação (logo e menu) com espaçamento e alinhamento ----*/
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    position: relative;
+    height: 85px;
+    /* Mantém a altura consistente */
 }
 
 .main-header .logo {
-    /*---- Define o estilo do texto do logotipo ----*/
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--dark-primary);
     text-decoration: none;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .main-header .nav-links {
-    /*---- Estiliza a lista do menu, removendo marcadores e alinhando os itens horizontalmente ----*/
     list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-header .nav-links li {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2rem;
 }
 
 .main-header .nav-links li a {
-    /*---- Estiliza os links do menu com cor, peso da fonte e posicionamento relativo ----*/
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
@@ -85,7 +90,6 @@ body {
 }
 
 .main-header .nav-links li a:not(.nav-button)::after {
-    /*---- Cria uma linha decorativa abaixo dos links do menu para animação ----*/
     content: '';
     position: absolute;
     bottom: 0;
@@ -97,23 +101,20 @@ body {
 }
 
 .main-header .nav-links li a:not(.nav-button):hover::after {
-    /*---- Anima a largura da linha decorativa ao passar o mouse sobre o link ----*/
     width: 100%;
 }
 
-/* ---- MENU HAMBÚRGUER (MÓVEL) - NOVO ---- */
+/* ---- MENU HAMBÚRGUER (MÓVEL) ---- */
 .hamburger-menu {
-    /*---- Esconde o ícone em telas de desktop ----*/
     display: none;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
-    z-index: 1001; /* Garante que fique acima de outros elementos */
+    z-index: 1001;
 }
 
 .hamburger-menu span {
-    /*---- Estiliza as três linhas do ícone hambúrguer ----*/
     display: block;
     width: 25px;
     height: 3px;
@@ -122,9 +123,8 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-/* ===== BOTÃO CTA (CALL TO ACTION)========== */
+/* ===== BOTÃO CTA (CALL TO ACTION) ========== */
 .cta-button {
-    /*---- Define o estilo de botões de ação com gradiente, bordas arredondadas e alinhamento de texto ----*/
     background: var(--primary-gradient);
     color: var(--white);
     padding: 0.7rem 1.8rem 0.9rem 1.8rem;
@@ -134,80 +134,72 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
     cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
     position: relative;
     top: -1px;
 }
 
 .cta-button:hover {
-    /*---- Adiciona um efeito de elevação no botão ao passar o mouse ----*/
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* ---- ESTILOS DA PÁGINA DE LOGIN (FINAL) ---- */
+/* ---- ESTILOS DA PÁGINA DE LOGIN ---- */
 .login-page-section {
-    /*---- Define a seção da página de login com altura mínima e alinhamento vertical ----*/
     padding: 5rem 0;
     min-height: 80vh;
-    display: flex;
-    align-items: center;
 }
 
+/* ALTERAÇÃO 1: Fundo gradiente aplicado ao contêiner principal */
 .login-layout {
-    /*---- Define o layout de grade para o card de login, com fundo branco, sombra e bordas arredondadas ----*/
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    align-items: stretch;
-    background: var(--white);
+    background: var(--primary-gradient);
+    /* O fundo principal agora é o verde */
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    font-size: 0;
 }
 
+/* ALTERAÇÃO 2: Coluna da esquerda agora tem o fundo branco */
 .login-promo {
-    /*---- Estiliza a seção de promoção à esquerda com espaçamento e centralização de conteúdo ----*/
     background: var(--white);
+    /* Este lado recebe o fundo branco sólido */
     padding: 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-align: center;
+    display: inline-block;
+    width: 40%;
+    vertical-align: middle;
+    font-size: 1rem;
 }
 
 .login-promo h2 {
-    /*---- Estiliza o título da seção de promoção ----*/
     font-size: 2.2rem;
     color: var(--dark-primary);
     margin-bottom: 1rem;
 }
 
 .login-promo p {
-    /*---- Estiliza o texto descritivo da seção de promoção ----*/
     color: var(--text-secondary);
     line-height: 1.8;
 }
 
 .promo-image {
-    /*---- Define o tamanho máximo e centraliza a imagem da seção de promoção ----*/
     max-width: 280px;
     margin: 2rem auto 0 auto;
 }
 
+/* ALTERAÇÃO 3: Removido o fundo do formulário (agora herda do pai) */
 .login-form-wrapper {
-    /*---- Estiliza o contêiner do formulário com fundo gradiente, espaçamento e centralização ----*/
-    background: var(--primary-gradient);
+    /* background: var(--primary-gradient); -- REMOVIDO */
     padding: 4rem;
     color: var(--white);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: inline-block;
+    width: 60%;
+    vertical-align: middle;
+    font-size: 1rem;
 }
 
 .login-form-wrapper h1 {
-    /*---- Estiliza o título principal do formulário de login ----*/
     font-size: 2.5rem;
     text-align: center;
     color: var(--white);
@@ -215,13 +207,11 @@ body {
 }
 
 .login-form-wrapper .form-group {
-    /*---- Define o posicionamento relativo e a margem para cada campo do formulário ----*/
     position: relative;
     margin-bottom: 2.5rem;
 }
 
 .login-form-wrapper .form-group label {
-    /*---- Estiliza e posiciona os rótulos (labels) para o efeito de flutuação ----*/
     color: rgba(255, 255, 255, 0.8);
     position: absolute;
     top: 0.8rem;
@@ -232,7 +222,6 @@ body {
 }
 
 .login-form-wrapper .form-group input {
-    /*---- Estiliza os campos de input com fundo transparente e borda inferior ----*/
     width: 100%;
     padding: 0.8rem 0.2rem;
     border: none;
@@ -247,21 +236,18 @@ body {
 }
 
 .login-form-wrapper .form-group input:focus {
-    /*---- Remove o contorno padrão e muda a cor da borda inferior quando o campo está focado ----*/
     outline: none;
     border-color: var(--white);
 }
 
 .login-form-wrapper .form-group input:focus+label,
 .login-form-wrapper .form-group input:not(:placeholder-shown)+label {
-    /*---- Anima o rótulo para a posição superior quando o campo está focado ou preenchido ----*/
     top: -1rem;
     font-size: 0.85rem;
     color: var(--white);
 }
 
 .login-form-wrapper .form-button {
-    /*---- Estiliza o botão de envio do formulário de login ----*/
     width: 100%;
     padding: 1rem 1.8rem;
     font-size: 1.1rem;
@@ -272,16 +258,13 @@ body {
 }
 
 .login-form-wrapper .form-button:hover {
-    /*---- Adiciona um efeito de elevação e muda a cor do botão de login ao passar o mouse ----*/
     background: #f0f0f0;
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-
 /* ---- RODAPÉ ---- */
 #contact {
-    /*---- Estiliza a seção do rodapé com cor de fundo escura, cor de texto e espaçamento ----*/
     background-color: var(--dark-primary);
     color: rgba(255, 255, 255, 0.8);
     padding: 4rem 0 0;
@@ -289,66 +272,61 @@ body {
 }
 
 .footer-grid {
-    /*---- Cria um layout de grade responsivo para as colunas do rodapé ----*/
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding-bottom: 3rem;
+    font-size: 0;
+    margin: 0 -1rem;
+}
+
+.footer-col {
+    display: inline-block;
+    width: calc(33.333% - 2rem);
+    margin: 0 1rem 2rem 1rem;
+    vertical-align: top;
+    font-size: 1rem;
 }
 
 .footer-col h3,
 .footer-col h4 {
-    /*---- Estiliza os títulos (H3 e H4) dentro das colunas do rodapé ----*/
     color: var(--white);
     margin-bottom: 1rem;
 }
 
 .footer-col h3 {
-    /*---- Define o tamanho da fonte para o H3 do rodapé ----*/
     font-size: 1.5rem;
 }
 
 .footer-col h4 {
-    /*---- Define o tamanho e peso da fonte para o H4 do rodapé ----*/
     font-size: 1.1rem;
     font-weight: 500;
 }
 
 .footer-col p {
-    /*---- Adiciona uma margem inferior aos parágrafos do rodapé ----*/
     margin-bottom: 0.5rem;
 }
 
 .footer-col ul {
-    /*---- Remove os marcadores de lista nas listas do rodapé ----*/
     list-style: none;
 }
 
 .footer-col ul li {
-    /*---- Adiciona uma margem inferior aos itens de lista do rodapé ----*/
     margin-bottom: 0.5rem;
 }
 
 .footer-col a {
-    /*---- Estiliza os links do rodapé, removendo o sublinhado e definindo a cor ----*/
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-col a:hover {
-    /*---- Altera a cor e adiciona um sublinhado ao passar o mouse sobre os links do rodapé ----*/
     color: var(--white);
     text-decoration: underline;
 }
 
 address {
-    /*---- Remove o estilo itálico padrão da tag de endereço ----*/
     font-style: normal;
 }
 
 .footer-bottom {
-    /*---- Estiliza a parte inferior do rodapé (copyright) com uma borda superior ----*/
     text-align: center;
     padding: 1.5rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -356,103 +334,118 @@ address {
     color: rgba(255, 255, 255, 0.6);
 }
 
-
 /* ---- RESPONSIVIDADE ---- */
 @media (max-width: 992px) {
-    .login-layout {
-        /*---- Altera o layout de login para uma única coluna em telas de tablet ----*/
-        grid-template-columns: 1fr;
+
+    .login-promo,
+    .login-form-wrapper {
+        display: block;
+        width: 100%;
     }
+
     .login-promo {
-        /*---- Arredonda as bordas superiores da seção de promoção quando empilhada ----*/
         border-radius: 20px 20px 0 0;
     }
+
     .login-form-wrapper {
-        /*---- Arredonda as bordas inferiores do formulário quando empilhado ----*/
         border-radius: 0 0 20px 20px;
     }
 }
 
 @media (max-width: 768px) {
-    /* --- LÓGICA DO MENU HAMBÚRGUER (NOVO) --- */
     .hamburger-menu {
-        /*---- Mostra o botão hambúrguer em telas de celular ----*/
         display: block;
     }
 
+    .main-header nav .nav-container {
+        height: auto;
+    }
+
+    .main-header .logo {
+        position: static;
+        /* Volta ao fluxo normal */
+        transform: none;
+    }
+
+    .main-header .hamburger-menu {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
     .main-header .nav-links {
-        /*---- Transforma a navegação em um painel de sobreposição ----*/
         position: fixed;
         top: 0;
         right: 0;
         width: 100%;
         height: 100vh;
         background-color: var(--dark-primary);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
+        padding-top: 30vh;
+        text-align: center;
     }
 
     .main-header .nav-links.active {
-        /*---- Mostra o menu quando a classe 'active' é aplicada via JS ----*/
         transform: translateX(0);
     }
-    
+
+    .main-header .nav-links li {
+        display: block;
+        margin: 0;
+        padding: 1rem 0;
+    }
+
     .main-header .nav-links li a {
-        /*---- Aumenta o tamanho e muda a cor dos links no menu móvel ----*/
         font-size: 1.5rem;
         color: var(--white);
     }
-    
+
     .main-header .nav-links li a:not(.nav-button)::after {
-        /*---- Ajusta a cor do sublinhado para o fundo escuro do menu ----*/
         background: var(--white);
     }
 
     .main-header .nav-links .nav-button {
-        /*---- Estiliza o botão de CTA no menu móvel ----*/
         padding: 0.8rem 2rem;
         font-size: 1.2rem;
     }
 
-    /*---- Animação do ícone hambúrguer para um 'X' ----*/
-    .hamburger-menu.active span {
-        /*---- Muda a cor das linhas do ícone para branco no menu ativo ----*/
-        background-color: var(--white);
-    }
     .hamburger-menu.active span:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
+        background-color: var(--white);
     }
+
     .hamburger-menu.active span:nth-child(2) {
         opacity: 0;
     }
+
     .hamburger-menu.active span:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+        background-color: var(--white);
     }
 
     .login-page-section {
-        /*---- Reduz o espaçamento da seção de login em telas de celular ----*/
         padding: 3rem 0;
     }
+
     .login-form-wrapper h1 {
-        /*---- Reduz o tamanho da fonte do título do formulário em telas de celular ----*/
         font-size: 2rem;
     }
+
     .login-promo h2 {
-        /*---- Reduz o tamanho da fonte do título da promoção em telas de celular ----*/
         font-size: 1.8rem;
     }
+
     .login-promo,
     .login-form-wrapper {
-        /*---- Reduz o espaçamento interno do card de login em telas de celular ----*/
         padding: 2.5rem;
     }
 
-    .footer-grid {
-        /*---- Centraliza o texto das colunas do rodapé quando empilhadas ----*/
+    .footer-col {
+        display: block;
+        width: auto;
+        margin: 0 0 2rem;
         text-align: center;
     }
 }

@@ -35,37 +35,47 @@ body {
     position: sticky;
     top: 0;
     z-index: 1001;
+    min-height: 80px;
+    /* Altura para consistência */
 }
 
 .main-header nav .nav-container {
-    /*---- Organiza o conteúdo da navegação (logo e menu) com espaçamento e alinhamento ----*/
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
+    height: 80px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
 .main-header .logo {
-    /*---- Define o estilo do texto do logotipo, garantindo que não quebre a linha ----*/
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--dark-primary);
     text-decoration: none;
     white-space: nowrap;
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .main-header .nav-links {
-    /*---- Estiliza a lista do menu, removendo marcadores e alinhando os itens horizontalmente ----*/
     list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-header .nav-links li {
+    display: inline-block;
+    /* Alinha links horizontalmente */
+    vertical-align: middle;
+    margin-left: 2rem;
+    /* Substitui 'gap' */
 }
 
 .main-header .nav-links li a {
-    /*---- Estiliza os links do menu com cor, peso da fonte e posicionamento relativo ----*/
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
@@ -74,7 +84,6 @@ body {
 }
 
 .main-header .nav-links li a:not(.nav-button)::after {
-    /*---- Cria uma linha decorativa abaixo dos links do menu para animação ----*/
     content: '';
     position: absolute;
     bottom: 0;
@@ -86,12 +95,10 @@ body {
 }
 
 .main-header .nav-links li a:not(.nav-button):hover::after {
-    /*---- Anima a largura da linha decorativa ao passar o mouse sobre o link ----*/
     width: 100%;
 }
 
 .cta-button {
-    /*---- Define o estilo principal de botões de ação com gradiente e bordas arredondadas ----*/
     background: var(--primary-gradient);
     color: var(--white);
     padding: 0.7rem 1.8rem;
@@ -105,7 +112,6 @@ body {
 }
 
 .cta-button:hover {
-    /*---- Adiciona um efeito de elevação no botão ao passar o mouse ----*/
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
@@ -131,57 +137,49 @@ body {
 
 /* ===== CONTAINER DOS PAINÉIS ===== */
 .panel-container {
-    /*---- Define o contêiner principal para os painéis, com layout flexível, sombra e centralização ----*/
-    display: flex;
-    justify-content: center;
-    gap: 0;
     padding: 5rem 2rem;
-    flex-wrap: wrap;
     filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.08));
     max-width: 1200px;
     margin: 0 auto;
+    text-align: center;
+    font-size: 0;
 }
 
 .panel-card {
-    /*---- Estiliza cada painel clicável, com fundo branco, centralização de conteúdo e transições ----*/
     background-color: var(--white);
     width: 50%;
     padding: 2.5rem;
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1rem;
+    min-height: 250px;
 }
 
 .panel-card:nth-child(2n+1) {
-    /*---- Adiciona uma borda à direita nos painéis da esquerda (1º e 3º) para formar a grade ----*/
     border-right: 1px solid var(--border-color);
 }
 
 .panel-card:nth-child(1),
 .panel-card:nth-child(2) {
-    /*---- Adiciona uma borda inferior nos painéis superiores (1º e 2º) para formar a grade ----*/
     border-bottom: 1px solid var(--border-color);
 }
 
 .panel-card:hover {
-    /*---- Aplica um efeito de expansão e sombra mais forte ao passar o mouse sobre um painel ----*/
     transform: scale(1.05);
     box-shadow: 0 10px 30px 5px rgba(58, 79, 65, 0.25);
     z-index: 10;
 }
 
 .panel-card .icon {
-    /*---- Estiliza o contêiner do ícone dentro do painel ----*/
     margin-bottom: 1rem;
     color: var(--dark-primary);
 }
 
 .panel-card .icon i {
-    /*---- Define o tamanho e a transição para o ícone ----*/
     font-size: 56px;
     line-height: 1;
     display: inline-block;
@@ -189,13 +187,11 @@ body {
 }
 
 .panel-card:hover .icon i {
-    /*---- Aplica um efeito de zoom no ícone ao passar o mouse sobre o painel ----*/
     transform: scale(1.1);
 }
 
 /* ===== ESTILOS DO MODAL (ATUALIZADO) ===== */
 .modal-overlay {
-    /*---- Estiliza a sobreposição do modal, tornando-a invisível por padrão ----*/
     position: fixed;
     top: 0;
     left: 0;
@@ -211,13 +207,11 @@ body {
 }
 
 .modal-overlay.active {
-    /*---- Torna a sobreposição do modal visível quando a classe 'active' é aplicada ----*/
     opacity: 1;
     visibility: visible;
 }
 
 .modal-content {
-    /*---- Estiliza a caixa de conteúdo do modal, com fundo, sombra e transição de entrada ----*/
     background-color: var(--white);
     padding: 2.5rem;
     border-radius: 10px;
@@ -232,12 +226,10 @@ body {
 }
 
 .modal-overlay.active .modal-content {
-    /*---- Anima a entrada do conteúdo do modal quando a sobreposição está ativa ----*/
     transform: translateY(0);
 }
 
 .modal-content h3 {
-    /*---- Estiliza o título dentro do modal ----*/
     margin-bottom: 2rem;
     font-size: 1.75rem;
     color: var(--dark-primary);
@@ -245,7 +237,6 @@ body {
 }
 
 .close-button {
-    /*---- Posiciona e estiliza o botão de fechar do modal ----*/
     position: absolute;
     top: 15px;
     right: 20px;
@@ -256,12 +247,10 @@ body {
 }
 
 .modal-form .form-group {
-    /*---- Define o espaçamento inferior para os grupos de campos do formulário no modal ----*/
     margin-bottom: 1.5rem;
 }
 
 .modal-form .form-group label {
-    /*---- Estiliza os rótulos (labels) do formulário no modal ----*/
     display: block;
     font-weight: 500;
     margin-bottom: 0.5rem;
@@ -270,7 +259,6 @@ body {
 
 .modal-form .form-group input,
 .modal-form .form-group select {
-    /*---- Estiliza os campos de input e select do formulário no modal ----*/
     width: 100%;
     padding: 0.75rem;
     border: 1px solid var(--border-color);
@@ -282,9 +270,27 @@ body {
 
 /* ---- RESPONSIVIDADE (ADICIONADO E AJUSTADO) ---- */
 @media (max-width: 768px) {
+
     /* --- LÓGICA DO MENU HAMBÚRGUER --- */
     .hamburger-menu {
         display: block;
+    }
+
+    .main-header nav .nav-container {
+        height: auto;
+    }
+
+    .main-header .logo {
+        position: static;
+        transform: none;
+        font-size: 1.2rem;
+    }
+
+    .main-header .hamburger-menu {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .main-header .nav-links {
@@ -294,25 +300,29 @@ body {
         width: 100%;
         height: 100vh;
         background-color: var(--dark-primary);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
+        padding-top: 30vh;
+        text-align: center;
     }
 
     .main-header .nav-links.active {
         transform: translateX(0);
     }
-    
+
+    .main-header .nav-links li {
+        display: block;
+        margin: 0;
+        padding: 1rem 0;
+    }
+
     .main-header .nav-links li a {
         font-size: 1.5rem;
-        color: var(--white); /* Cor dos links no menu aberto */
+        color: var(--white);
     }
-    
+
     .main-header .nav-links li a:not(.nav-button)::after {
-        background: var(--white); /* Cor do sublinhado no menu aberto */
+        background: var(--white);
     }
 
     .main-header .nav-links .nav-button {
@@ -322,40 +332,58 @@ body {
 
     /* Animação do ícone hambúrguer para um 'X' */
     .hamburger-menu.active span {
-        background-color: var(--white); /* Cor do 'X' quando o menu está aberto */
+        background-color: var(--white);
     }
+
     .hamburger-menu.active span:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
+
     .hamburger-menu.active span:nth-child(2) {
         opacity: 0;
     }
+
     .hamburger-menu.active span:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
-    
+
     /* --- AJUSTES NO LAYOUT DOS PAINÉIS --- */
+    /* ALTERAÇÃO 1: Contêiner agora tem borda e cantos arredondados */
     .panel-container {
         padding: 3rem 1rem;
-        flex-direction: column; /* Empilha os cards verticalmente */
-        gap: 1rem; /* Adiciona um espaço entre os cards */
         filter: none;
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
 
+    /* ALTERAÇÃO 2: Painéis agora são blocos sem bordas individuais ou margens */
     .panel-card {
-        width: 100%; /* Ocupa a largura total */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        border: 1px solid var(--border-color); /* Adiciona borda em todos */
-        border-radius: 10px; /* Arredonda as bordas */
+        display: block;
+        width: 100%;
+        box-shadow: none;
+        /* Sombra movida para o contêiner */
+        border: none;
+        /* Bordas individuais removidas */
+        border-radius: 0;
+        /* Arredondamento individual removido */
+        margin-bottom: 0;
+        /* Margem removida para ficarem "grudados" */
+    }
+
+    /* ALTERAÇÃO 3: Apenas as bordas internas são adicionadas, exceto no último item */
+    .panel-card:not(:last-child) {
+        border-bottom: 1px solid var(--border-color);
     }
 
     .panel-card:hover {
-        transform: translateY(-5px); /* Efeito de hover mais sutil */
-        box-shadow: 0 8px 25px rgba(58, 79, 65, 0.2);
+        transform: none;
+        /* Remove o efeito de hover que quebra o layout unido */
+        box-shadow: none;
     }
-    
+
     .main-header .logo {
-        font-size: 1.2rem; /* Diminui o logo para caber */
+        font-size: 1.2rem;
     }
 }
 

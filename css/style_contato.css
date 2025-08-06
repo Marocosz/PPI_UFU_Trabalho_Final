@@ -42,41 +42,44 @@ body {
 .main-header {
     /*---- Estiliza o cabeçalho principal, tornando-o fixo no topo com uma sombra ----*/
     background: var(--white);
-    padding: 1rem 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
     position: sticky;
     top: 0;
     z-index: 1000;
+    min-height: 85px;
 }
 
 .main-header nav .nav-container {
-    /*---- Organiza o conteúdo da navegação (logo e menu) com espaçamento e alinhamento ----*/
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    position: relative;
+    height: 85px;
 }
 
 .main-header .logo {
-    /*---- Define o estilo do texto do logotipo ----*/
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--dark-primary);
     text-decoration: none;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .main-header .nav-links {
-    /*---- Estiliza a lista do menu, removendo marcadores e alinhando os itens horizontalmente ----*/
     list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-header .nav-links li {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2rem;
 }
 
 .main-header .nav-links li a {
-    /*---- Estiliza os links do menu com cor, peso da fonte e posicionamento relativo ----*/
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
@@ -85,7 +88,6 @@ body {
 }
 
 .main-header .nav-links li a:not(.nav-button)::after {
-    /*---- Cria uma linha decorativa abaixo dos links do menu para animação ----*/
     content: '';
     position: absolute;
     bottom: 0;
@@ -97,34 +99,34 @@ body {
 }
 
 .main-header .nav-links li a:not(.nav-button):hover::after {
-    /*---- Anima a largura da linha decorativa ao passar o mouse sobre o link ----*/
     width: 100%;
 }
 
 /* ---- MENU HAMBÚRGUER (MÓVEL) - NOVO ---- */
 .hamburger-menu {
-    /*---- Esconde o ícone em telas de desktop ----*/
     display: none;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
-    z-index: 1001; /* Garante que fique acima de outros elementos */
+    z-index: 1001;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .hamburger-menu span {
-    /*---- Estiliza as três linhas do ícone hambúrguer ----*/
     display: block;
     width: 25px;
     height: 3px;
-    background-color: var(--dark-primary); /* Cor para o cabeçalho branco */
+    background-color: var(--dark-primary);
     margin: 5px 0;
     transition: all 0.3s ease-in-out;
 }
 
-/* ===== BOTÃO CTA (CALL TO ACTION)========== */
+/* ===== BOTÃO CTA (CALL TO ACTION) ========== */
 .cta-button {
-    /*---- Define o estilo de botões de ação com gradiente, bordas arredondadas e alinhamento de texto ----*/
     background: var(--primary-gradient);
     color: var(--white);
     padding: 0.7rem 1.8rem 0.9rem 1.8rem;
@@ -134,80 +136,76 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
     cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
     position: relative;
     top: -1px;
 }
 
 .cta-button:hover {
-    /*---- Adiciona um efeito de elevação no botão ao passar o mouse ----*/
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* ---- ESTILOS DA PÁGINA DE CONTATO ---- */
 .contact-page-section {
-    /*---- Define o espaçamento e a cor de fundo para a seção de contato ----*/
     padding: 5rem 0;
     background-color: var(--white);
 }
 
 .page-title {
-    /*---- Estiliza o contêiner do título da página, centralizando o texto ----*/
     text-align: center;
     margin-bottom: 4rem;
 }
 
 .page-title h1 {
-    /*---- Estiliza o texto do título principal H1 ----*/
     font-size: 2.8rem;
     color: var(--dark-primary);
     margin-bottom: 0.5rem;
 }
 
 .page-title p {
-    /*---- Estiliza o parágrafo de subtítulo, limitando sua largura e centralizando ----*/
     font-size: 1.1rem;
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
 }
 
+/* ALTERAÇÃO 1: Layout de colunas agora usa 'inline-block' */
 .contact-layout {
-    /*---- Define um layout de grade para organizar as seções de informações e formulário ----*/
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 2rem;
-    align-items: stretch;
+    /* Truque para remover espaço em branco entre elementos inline-block */
+    font-size: 0;
 }
 
 /* ---- COLUNA DE INFORMAÇÕES (Esquerda com fundo) ---- */
 .contact-info {
-    /*---- Estiliza a coluna de informações com fundo gradiente, espaçamento e layout flexível ----*/
+    width: 48%;
+    margin-right: 4%;
+    /* Cria o espaço entre as colunas */
+    display: inline-block;
+    vertical-align: top;
+    /* Alinha as colunas pelo topo */
+    font-size: 1rem;
+    /* Restaura o tamanho da fonte */
     background: var(--primary-gradient);
     padding: 3rem;
     border-radius: 15px;
     color: var(--white);
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    padding-bottom: 300px;
+    /* Espaço para o mapa */
 }
 
 .contact-info h2 {
-    /*---- Estiliza o título H2 dentro da coluna de informações ----*/
     font-size: 2rem;
     color: var(--white);
     margin-bottom: 2rem;
 }
 
 .contact-info .info-item {
-    /*---- Adiciona espaçamento inferior para cada item de informação ----*/
     margin-bottom: 2rem;
 }
 
 .contact-info .info-item h4 {
-    /*---- Estiliza o subtítulo H4 de cada item de informação ----*/
     color: var(--white);
     font-size: 1.2rem;
     margin-bottom: 0.25rem;
@@ -215,21 +213,21 @@ body {
 }
 
 .contact-info .info-item p {
-    /*---- Estiliza o texto do parágrafo de cada item de informação ----*/
     color: rgba(255, 255, 255, 0.9);
     margin: 0;
 }
 
 .contact-info .map-container {
-    /*---- Estiliza o contêiner do mapa, forçando-o para a parte inferior e aplicando bordas arredondadas ----*/
     border-radius: 15px;
     overflow: hidden;
-    margin-top: auto;
     box-shadow: none;
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+    right: 3rem;
 }
 
 .contact-info .map-container iframe {
-    /*---- Garante que o iframe do mapa preencha o contêiner sem bordas ----*/
     width: 100%;
     height: 250px;
     border: 0;
@@ -237,26 +235,28 @@ body {
 
 /* ---- FORMULÁRIO (Direita) ---- */
 .contact-form-wrapper {
-    /*---- Adiciona um espaçamento interno ao contêiner do formulário ----*/
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1rem;
+    /* Restaura o tamanho da fonte */
     padding: 1rem;
 }
 
+/* O resto dos estilos do formulário permanece o mesmo */
 .contact-form-wrapper h2 {
-    /*---- Estiliza o título H2 do formulário de contato ----*/
     font-size: 2rem;
     color: var(--dark-primary);
     margin-bottom: 2rem;
 }
 
 .form-group {
-    /*---- Define o posicionamento relativo e margem para cada grupo de campo do formulário ----*/
     position: relative;
     margin-bottom: 2.5rem;
 }
 
 .form-group input,
 .form-group textarea {
-    /*---- Estiliza os campos de input e textarea com fundo transparente e borda inferior ----*/
     width: 100%;
     padding: 0.8rem 0.2rem;
     border: none;
@@ -272,15 +272,11 @@ body {
 
 .form-group input:focus,
 .form-group textarea:focus {
-    /*---- Remove o contorno e muda a cor da borda inferior quando o campo está focado ----*/
     outline: none;
     border-color: var(--dark-primary);
 }
 
-
-/* ===== ÚNICA REGRA MODIFICADA ===== */
 .form-group label {
-    /*---- Estiliza e posiciona os rótulos (labels) para o efeito de flutuação ----*/
     position: absolute;
     top: 0.8rem;
     left: 0.2rem;
@@ -289,27 +285,22 @@ body {
     transition: all 0.3s ease;
     pointer-events: none;
 }
-/* ==================================== */
-
 
 .form-group input:focus+label,
 .form-group input:not(:placeholder-shown)+label,
 .form-group textarea:focus+label,
 .form-group textarea:not(:placeholder-shown)+label {
-    /*---- Anima o rótulo para a posição superior quando o campo está focado ou preenchido ----*/
     top: -1rem;
     font-size: 0.85rem;
     color: var(--dark-primary);
 }
 
 textarea {
-    /*---- Permite o redimensionamento vertical da área de texto e define uma altura mínima ----*/
     resize: vertical;
     min-height: 80px;
 }
 
 .form-button {
-    /*---- Estiliza o botão de envio do formulário, fazendo-o ocupar toda a largura ----*/
     width: 100%;
     padding: 1rem 1.8rem;
     font-size: 1.1rem;
@@ -318,40 +309,49 @@ textarea {
 
 /* ---- RODAPÉ ATUALIZADO ---- */
 #main-footer {
-    /*---- Estiliza a seção do rodapé principal com fundo claro e borda superior ----*/
     background-color: var(--bg-light);
     border-top: 1px solid #e7e7e7;
     padding: 1.5rem 0;
     margin-top: 4rem;
 }
 
+/* ALTERAÇÃO 2: Rodapé agora usa 'text-align: justify' */
 #main-footer .footer-content {
-    /*---- Organiza o conteúdo do rodapé com layout flexível e espaçamento ----*/
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+    text-align: justify;
+}
+
+#main-footer .footer-content::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+
+#main-footer .copyright,
+#main-footer .footer-nav {
+    display: inline-block;
+    /* Alinha os elementos na mesma linha */
+    vertical-align: middle;
+    /* Alinha verticalmente */
 }
 
 #main-footer .copyright {
-    /*---- Estiliza o texto de direitos autorais no rodapé ----*/
     color: var(--text-secondary);
     font-size: 0.9rem;
     margin: 0;
 }
 
 .footer-nav ul {
-    /*---- Estiliza a lista de navegação do rodapé, alinhando os itens horizontalmente ----*/
     list-style: none;
-    display: flex;
-    gap: 1.5rem;
     margin: 0;
     padding: 0;
 }
 
+.footer-nav ul li {
+    display: inline-block;
+    margin-left: 1.5rem;
+}
+
 .footer-nav a {
-    /*---- Estiliza os links de navegação do rodapé ----*/
     color: var(--text-secondary);
     text-decoration: none;
     font-size: 0.9rem;
@@ -359,95 +359,108 @@ textarea {
 }
 
 .footer-nav a:hover {
-    /*---- Altera a cor e adiciona sublinhado ao passar o mouse sobre os links do rodapé ----*/
     color: var(--dark-primary);
     text-decoration: underline;
 }
 
-
 /* ---- RESPONSIVIDADE (ATUALIZADO) ---- */
 @media (max-width: 992px) {
-    .contact-layout {
-        /*---- Altera o layout de contato para uma única coluna em telas menores ----*/
-        grid-template-columns: 1fr;
-        gap: 3rem;
+
+    /* ALTERAÇÃO 3: Colunas de contato empilham em telas menores */
+    .contact-info,
+    .contact-form-wrapper {
+        display: block;
+        /* Muda para block para empilhar */
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3rem;
     }
 }
 
 @media (max-width: 768px) {
     .page-title h1 {
-        /*---- Diminui o tamanho da fonte do título principal em telas de celular ----*/
         font-size: 2.2rem;
     }
+
     .contact-page-section {
-        /*---- Reduz o espaçamento vertical da seção de contato em telas de celular ----*/
         padding: 4rem 0;
     }
 
-    /* --- LÓGICA DO MENU HAMBÚRGUER (NOVO) --- */
     .hamburger-menu {
-        /*---- Mostra o botão hambúrguer em telas de celular ----*/
         display: block;
     }
 
+    /* Lógica do menu mobile mantida, pois já usa position e transform */
     .main-header .nav-links {
-        /*---- Transforma a navegação em um painel de sobreposição ----*/
         position: fixed;
         top: 0;
         right: 0;
         width: 100%;
         height: 100vh;
         background-color: var(--dark-primary);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
+        padding-top: 30vh;
+        text-align: center;
     }
 
     .main-header .nav-links.active {
-        /*---- Mostra o menu quando a classe 'active' é aplicada via JS ----*/
         transform: translateX(0);
     }
-    
+
+    .main-header .nav-links li {
+        display: block;
+        margin-left: 0;
+        padding: 1rem 0;
+    }
+
     .main-header .nav-links li a {
-        /*---- Aumenta o tamanho e muda a cor dos links no menu móvel ----*/
         font-size: 1.5rem;
         color: var(--white);
     }
-    
+
     .main-header .nav-links li a:not(.nav-button)::after {
-        /*---- Ajusta a cor do sublinhado para o fundo escuro do menu ----*/
         background: var(--white);
     }
 
     .main-header .nav-links .nav-button {
-        /*---- Estiliza o botão de CTA no menu móvel ----*/
         padding: 0.8rem 2rem;
         font-size: 1.2rem;
     }
 
-    /*---- Animação do ícone hambúrguer para um 'X' ----*/
+    /* Animação do ícone hambúrguer para um 'X' */
     .hamburger-menu.active span {
-        /*---- Muda a cor das linhas do ícone para branco no menu ativo ----*/
         background-color: var(--white);
     }
+
     .hamburger-menu.active span:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
+
     .hamburger-menu.active span:nth-child(2) {
         opacity: 0;
     }
+
     .hamburger-menu.active span:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
 
 
+    /* ALTERAÇÃO 4: Rodapé responsivo sem float/flex/grid */
     #main-footer .footer-content {
-        /*---- Centraliza e empilha o conteúdo do rodapé em telas de celular ----*/
-        flex-direction: column;
-        justify-content: center;
         text-align: center;
+        /* Apenas centraliza o texto */
+    }
+
+    #main-footer .copyright,
+    #main-footer .footer-nav {
+        display: block;
+        /* Empilha os elementos */
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    #main-footer .footer-nav ul li {
+        margin: 0 0.75rem;
     }
 }
