@@ -177,7 +177,6 @@ body {
     /* Remove espaços em branco entre os itens inline-block */
 }
 
-/* ALTERAÇÃO 1: Largura do item da galeria definida para 50% para criar 2 colunas */
 .gallery-item {
     position: relative;
     overflow: hidden;
@@ -304,11 +303,9 @@ address {
     color: rgba(255, 255, 255, 0.6);
 }
 
-/* ---- AJUSTES DE RESPONSIVIDADE (ATUALIZADO) ---- */
-/* ALTERAÇÃO 2: Regra removida pois o padrão já é 2 colunas */
+/* ---- AJUSTES DE RESPONSIVIDADE ---- */
 @media (max-width: 992px) {
 
-    /* Não há necessidade de alterar a galeria aqui, ela permanecerá com 2 colunas */
     .footer-col {
         width: 50%;
         /* Rodapé passa a ter 2 colunas */
@@ -383,7 +380,6 @@ address {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* ALTERAÇÃO 3: Galeria com 1 coluna em celulares */
     .gallery-item {
         display: block;
         width: 100%;

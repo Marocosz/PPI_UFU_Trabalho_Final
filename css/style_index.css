@@ -38,7 +38,6 @@ body {
 }
 
 /* ---- SEÇÃO HERO E NAVEGAÇÃO ---- */
-/* ALTERAÇÃO 1: Substituído flex por position: relative para centralizar conteúdo */
 .hero-section {
     min-height: 95vh;
     background-color: var(--image-placeholder-bg);
@@ -56,7 +55,6 @@ nav {
     z-index: 1000;
 }
 
-/* ALTERAÇÃO 2: Navegação com posicionamento absoluto */
 nav .nav-container {
     position: relative;
     height: 50px;
@@ -87,7 +85,6 @@ nav .nav-container {
     /* Alinha horizontalmente */
     vertical-align: middle;
     margin-left: 2rem;
-    /* Substitui 'gap' */
 }
 
 .nav-links li a {
@@ -130,11 +127,9 @@ nav .nav-container {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* ALTERAÇÃO 3: Conteúdo Hero centralizado com posicionamento absoluto */
 .hero-content {
     position: absolute;
     top: 55%;
-    /* Levemente abaixo do meio para compensar a navegação */
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
@@ -199,7 +194,6 @@ section {
     background: var(--white);
 }
 
-/* ALTERAÇÃO 4: Conteúdo 'Sobre' com inline-block */
 .about-content {
     font-size: 0;
     /* Remove espaço em branco entre elementos */
@@ -213,7 +207,6 @@ section {
     font-size: 1rem;
     /* Restaura o tamanho da fonte */
     padding-right: 2rem;
-    /* Simula o 'gap' */
 }
 
 .about-content h2 {
@@ -243,7 +236,6 @@ section {
     display: inline-block;
     /* Alinha estatísticas horizontalmente */
     margin-right: 2rem;
-    /* Substitui 'gap' */
 }
 
 .stat-item h3 {
@@ -265,10 +257,8 @@ section {
     background-color: var(--white);
 }
 
-/* ALTERAÇÃO 5: Grid de Missão/Visão com inline-block */
 .mission-vision-grid {
     font-size: 0;
-    /* Remove espaço em branco */
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
@@ -279,11 +269,9 @@ section {
     width: 48%;
     vertical-align: top;
     font-size: 1rem;
-    /* Restaura a fonte */
     text-align: center;
     padding: 2rem;
     margin: 0 1%;
-    /* Simula o 'gap' */
 }
 
 .mission-vision-item h3 {
@@ -301,10 +289,8 @@ section {
     background-color: var(--bg-light);
 }
 
-/* ALTERAÇÃO 6: Grid de Serviços com inline-block */
 .services-grid {
     font-size: 0;
-    /* Remove espaço em branco */
     margin: 0 -1rem;
     /* Compensa a margem dos filhos */
 }
@@ -317,7 +303,6 @@ section {
     /* Espaçamento vertical e horizontal */
     vertical-align: top;
     font-size: 1rem;
-    /* Restaura a fonte */
     background: var(--white);
     padding: 2.5rem 2rem;
     border-radius: 15px;
@@ -350,7 +335,6 @@ section {
     margin-top: 5rem;
 }
 
-/* ALTERAÇÃO 7: Grid do Rodapé com inline-block */
 .footer-grid {
     font-size: 0;
     margin: 0 -1.5rem;
@@ -362,10 +346,8 @@ section {
     width: calc(33.333% - 3rem);
     /* 3 colunas com margens */
     margin: 0 1.5rem 3rem 1.5rem;
-    /* Simula o 'gap' */
     vertical-align: top;
     font-size: 1rem;
-    /* Restaura a fonte */
 }
 
 .footer-col h3,
@@ -443,7 +425,6 @@ address {
         font-size: 2.8rem;
     }
 
-    /* ALTERAÇÃO 8: Seção 'Sobre' responsiva sem flex */
     .about-content .text-content,
     .about-content .image-placeholder {
         display: block;
@@ -465,7 +446,6 @@ address {
 
 @media (max-width: 768px) {
 
-    /* ALTERAÇÃO 9: Lógica do menu mobile sem flex */
     .hamburger-menu {
         display: block;
     }
@@ -522,7 +502,6 @@ address {
         font-size: 2rem;
     }
 
-    /* ALTERAÇÃO 10: Seções com colunas empilhando */
     .mission-vision-item,
     .service-card,
     .footer-col {

@@ -102,7 +102,7 @@ body {
     width: 100%;
 }
 
-/* ---- MENU HAMBÚRGUER (MÓVEL) - NOVO ---- */
+/* ---- MENU HAMBÚRGUER (MÓVEL) ---- */
 .hamburger-menu {
     display: none;
     background: transparent;
@@ -170,9 +170,7 @@ body {
     margin: 0 auto;
 }
 
-/* ALTERAÇÃO 1: Layout de colunas agora usa 'inline-block' */
 .contact-layout {
-    /* Truque para remover espaço em branco entre elementos inline-block */
     font-size: 0;
 }
 
@@ -315,7 +313,6 @@ textarea {
     margin-top: 4rem;
 }
 
-/* ALTERAÇÃO 2: Rodapé agora usa 'text-align: justify' */
 #main-footer .footer-content {
     text-align: justify;
 }
@@ -363,10 +360,9 @@ textarea {
     text-decoration: underline;
 }
 
-/* ---- RESPONSIVIDADE (ATUALIZADO) ---- */
+/* ---- RESPONSIVIDADE ---- */
 @media (max-width: 992px) {
 
-    /* ALTERAÇÃO 3: Colunas de contato empilham em telas menores */
     .contact-info,
     .contact-form-wrapper {
         display: block;
@@ -390,7 +386,6 @@ textarea {
         display: block;
     }
 
-    /* Lógica do menu mobile mantida, pois já usa position e transform */
     .main-header .nav-links {
         position: fixed;
         top: 0;
@@ -446,7 +441,6 @@ textarea {
     }
 
 
-    /* ALTERAÇÃO 4: Rodapé responsivo sem float/flex/grid */
     #main-footer .footer-content {
         text-align: center;
         /* Apenas centraliza o texto */

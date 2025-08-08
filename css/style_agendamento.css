@@ -124,7 +124,7 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* ---- MENU HAMBÚRGUER (NOVO) ---- */
+/* ---- MENU HAMBÚRGUER ---- */
 .hamburger-menu {
     display: none;
     background: transparent;
@@ -147,7 +147,7 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-/* ---- SEÇÕES DE CONTEÚDO (sem alteração) ---- */
+/* ---- SEÇÕES DE CONTEÚDO ---- */
 .schedule-page-section {
     padding: 5rem 0;
     background-color: var(--bg-light);
@@ -294,17 +294,13 @@ body {
     margin-top: 5rem;
 }
 
-/* ALTERAÇÃO 1: Substituído float por 'inline-block' */
 .footer-grid {
     padding-bottom: 3rem;
     margin: 0 -1rem;
-    /* Truque para remover espaço em branco entre elementos inline-block */
     font-size: 0;
 }
 
-/* Removido o clearfix, não é mais necessário */
 
-/* ALTERAÇÃO 2: Colunas do rodapé agora usam 'inline-block' */
 .footer-col {
     display: inline-block;
     vertical-align: top;
@@ -366,13 +362,12 @@ address {
     color: rgba(255, 255, 255, 0.6);
 }
 
-/* ---- RESPONSIVIDADE (ATUALIZADO) ---- */
+/* ---- RESPONSIVIDADE ---- */
 @media (max-width: 992px) {
     .page-title h1 {
         font-size: 2.5rem;
     }
 
-    /* ALTERAÇÃO 3: Lógica responsiva para 'inline-block' */
     .footer-col {
         width: 50%;
     }
@@ -448,7 +443,6 @@ address {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* ALTERAÇÃO 4: Lógica responsiva para 'inline-block' agora usa 'display: block' */
     .footer-col {
         display: block;
         /* Empilha as colunas */
