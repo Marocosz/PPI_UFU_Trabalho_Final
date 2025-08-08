@@ -37,14 +37,11 @@ body {
     top: 0;
     z-index: 1001;
     min-height: 80px;
-    /* Altura para consistência */
 }
 
-/* ALTERAÇÃO 1: Navegação com posicionamento absoluto */
 .main-header nav .nav-container {
     position: relative;
     height: 48px;
-    /* Altura do container para alinhar os filhos */
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -72,10 +69,8 @@ body {
 
 .main-header .nav-links li {
     display: inline-block;
-    /* Alinha os links horizontalmente */
     vertical-align: middle;
     margin-left: 2rem;
-    /* Substitui 'gap' */
 }
 
 .main-header .nav-links li a {
@@ -140,7 +135,6 @@ body {
 }
 
 /* ---- CONTEÚDO DA PÁGINA ADMINISTRATIVA ---- */
-/* ALTERAÇÃO 2: Removido flex, 'gap' substituído por margem no filho */
 .admin-container {
     max-width: 1200px;
     margin: 3rem auto;
@@ -149,7 +143,6 @@ body {
 
 .data-section {
     margin-bottom: 4rem;
-    /* Substitui o 'gap' do container */
 }
 
 .data-section:last-child {
@@ -214,7 +207,6 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 1.5rem;
-    /* Substitui 'gap' */
 }
 
 .message-card:last-child {
@@ -227,27 +219,23 @@ body {
     box-shadow: 0 8px 25px rgba(58, 79, 65, 0.15);
 }
 
-/* ALTERAÇÃO 4: Substituído flex por 'text-align: justify' no cabeçalho da mensagem */
 .message-header {
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     border-bottom: 1px solid var(--border-color);
     text-align: justify;
     line-height: 1.5rem;
-    /* Ajuda no alinhamento vertical */
 }
 
 .message-header::after {
     content: '';
     display: inline-block;
     width: 100%;
-    /* Força o justify a funcionar em uma linha */
 }
 
 .message-header .author,
 .message-header .contact-info {
     display: inline-block;
-    /* Permite que fiquem na mesma linha */
     vertical-align: middle;
 }
 
@@ -362,11 +350,9 @@ body {
         font-size: 1.5rem;
     }
 
-    /* ALTERAÇÃO 5: Cabeçalho da mensagem empilhado */
     .message-header,
     .message-header::after {
         text-align: left;
-        /* Reseta o justify */
         line-height: normal;
         width: auto;
     }
@@ -374,10 +360,8 @@ body {
     .message-header .author,
     .message-header .contact-info {
         display: block;
-        /* Empilha os itens */
         width: 100%;
         margin-bottom: 0.5rem;
-        /* Substitui 'gap' */
     }
 
     .message-footer {

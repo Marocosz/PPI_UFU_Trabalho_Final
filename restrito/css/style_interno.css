@@ -39,7 +39,6 @@ body {
     min-height: 80px;
 }
 
-/* ALTERAÇÃO 1: Navegação com posicionamento absoluto */
 .main-header nav .nav-container {
     position: relative;
     height: 48px;
@@ -72,7 +71,6 @@ body {
     display: inline-block;
     vertical-align: middle;
     margin-left: 2rem;
-    /* Substitui 'gap' */
 }
 
 .main-header .nav-links li a {
@@ -137,22 +135,18 @@ body {
 }
 
 /* ---- CONTEÚDO DA PÁGINA DE EQUIPE ---- */
-/* ALTERAÇÃO 2: Substituído 'flex' por 'inline-block' nas colunas */
 .split-container {
     max-width: 1400px;
     margin: 3rem auto;
     padding: 0 2rem;
     font-size: 0;
-    /* Remove espaço em branco entre colunas */
 }
 
 .team-column {
     display: inline-block;
     width: calc(50% - 1rem);
-    /* Define colunas de 50% com espaço de 2rem no meio */
     vertical-align: top;
     font-size: 1rem;
-    /* Restaura o tamanho da fonte */
     background-color: var(--white);
     padding: 2rem;
     border-radius: 12px;
@@ -161,7 +155,6 @@ body {
 
 .team-column:first-child {
     margin-right: 2rem;
-    /* Cria o 'gap' */
 }
 
 
@@ -179,7 +172,6 @@ body {
     padding: 1.5rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 1.5rem;
-    /* Substitui 'gap' */
 }
 
 .team-card:last-child {
@@ -213,7 +205,6 @@ body {
     margin: 0;
 }
 
-/* ALTERAÇÃO 4: Substituído 'flex' por 'text-align: justify' */
 .details-list li {
     padding: 0.6rem 0;
     font-size: 0.9rem;
@@ -225,7 +216,6 @@ body {
     content: '';
     display: inline-block;
     width: 100%;
-    /* Força o justify a funcionar em uma linha */
 }
 
 
@@ -236,7 +226,6 @@ body {
 .details-list li strong,
 .details-list li span {
     display: inline-block;
-    /* Garante que os filhos participem do justify */
 }
 
 .details-list li strong {
@@ -262,7 +251,6 @@ body {
 /* ---- RESPONSIVIDADE (ATUALIZADO) ---- */
 @media (max-width: 992px) {
 
-    /* ALTERAÇÃO 5: Colunas empilhando verticalmente */
     .team-column {
         display: block;
         width: 100%;
@@ -271,7 +259,6 @@ body {
     .team-column:first-child {
         margin-right: 0;
         margin-bottom: 2rem;
-        /* Adiciona o 'gap' vertical */
     }
 }
 

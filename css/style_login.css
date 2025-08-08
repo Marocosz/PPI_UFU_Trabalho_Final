@@ -53,9 +53,7 @@ body {
 .main-header nav .nav-container {
     position: relative;
     height: 85px;
-    /* Mantém a altura consistente */
 }
-
 .main-header .logo {
     font-size: 1.8rem;
     font-weight: 700;
@@ -150,20 +148,16 @@ body {
     min-height: 80vh;
 }
 
-/* ALTERAÇÃO 1: Fundo gradiente aplicado ao contêiner principal */
 .login-layout {
     background: var(--primary-gradient);
-    /* O fundo principal agora é o verde */
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     font-size: 0;
 }
 
-/* ALTERAÇÃO 2: Coluna da esquerda agora tem o fundo branco */
 .login-promo {
     background: var(--white);
-    /* Este lado recebe o fundo branco sólido */
     padding: 4rem;
     text-align: center;
     display: inline-block;
@@ -188,9 +182,7 @@ body {
     margin: 2rem auto 0 auto;
 }
 
-/* ALTERAÇÃO 3: Removido o fundo do formulário (agora herda do pai) */
 .login-form-wrapper {
-    /* background: var(--primary-gradient); -- REMOVIDO */
     padding: 4rem;
     color: var(--white);
     display: inline-block;
@@ -363,7 +355,6 @@ address {
 
     .main-header .logo {
         position: static;
-        /* Volta ao fluxo normal */
         transform: none;
     }
 

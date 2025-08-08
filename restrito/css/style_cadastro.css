@@ -36,7 +36,6 @@ body {
     top: 0;
     z-index: 1001;
     min-height: 80px;
-    /* Altura para consistência */
 }
 
 .main-header nav .nav-container {
@@ -69,10 +68,8 @@ body {
 
 .main-header .nav-links li {
     display: inline-block;
-    /* Alinha links horizontalmente */
     vertical-align: middle;
     margin-left: 2rem;
-    /* Substitui 'gap' */
 }
 
 .main-header .nav-links li a {
@@ -348,7 +345,6 @@ body {
     }
 
     /* --- AJUSTES NO LAYOUT DOS PAINÉIS --- */
-    /* ALTERAÇÃO 1: Contêiner agora tem borda e cantos arredondados */
     .panel-container {
         padding: 3rem 1rem;
         filter: none;
@@ -357,28 +353,21 @@ body {
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
 
-    /* ALTERAÇÃO 2: Painéis agora são blocos sem bordas individuais ou margens */
     .panel-card {
         display: block;
         width: 100%;
         box-shadow: none;
-        /* Sombra movida para o contêiner */
         border: none;
-        /* Bordas individuais removidas */
         border-radius: 0;
-        /* Arredondamento individual removido */
         margin-bottom: 0;
-        /* Margem removida para ficarem "grudados" */
     }
 
-    /* ALTERAÇÃO 3: Apenas as bordas internas são adicionadas, exceto no último item */
     .panel-card:not(:last-child) {
         border-bottom: 1px solid var(--border-color);
     }
 
     .panel-card:hover {
         transform: none;
-        /* Remove o efeito de hover que quebra o layout unido */
         box-shadow: none;
     }
 
