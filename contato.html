@@ -1,34 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Entre em contato com a Innovare Medical Center. Envie suas dúvidas, sugestões ou reclamações através de nosso formulário.">
+    <meta name="description" content="Entre em contato com a Innovare Medical Center.">
     <title>Contato - Innovare Medical Center</title>
-
     <link rel="icon" type="image/png" href="images/icon_verde_final.png">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/style_contato.css">
 </head>
-
 <body>
     <header class="main-header">
         <nav>
             <div class="nav-container">
-                <a href="/index.html" class="logo">Innovare</a>
-
+                <a href="index.html" class="logo">Innovare</a>
                 <button class="hamburger-menu" aria-label="Abrir Menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
-
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="galeria.html">Galeria</a></li>
@@ -39,48 +29,23 @@
             </div>
         </nav>
     </header>
-
     <main>
         <section id="contact-page" class="contact-page-section">
             <div class="container">
                 <div class="page-title">
                     <h1>Fale Conosco</h1>
-                    <p>Estamos aqui para ouvir você. Utilize os canais abaixo para suas dúvidas, sugestões ou
-                        reclamações.</p>
+                    <p>Estamos aqui para ouvir você. Utilize os canais abaixo para suas dúvidas ou sugestões.</p>
                 </div>
-
                 <div class="contact-layout">
-
                     <div class="contact-info">
                         <h2>Nossos Canais</h2>
-
-                        <div class="info-item">
-                            <h4>Endereço</h4>
-                            <p>Av. João Naves de Ávila, 2121, Santa Mônica, Uberlândia - MG</p>
-                        </div>
-
-                        <div class="info-item">
-                            <h4>Telefone</h4>
-                            <p>(34) 3200-0000</p>
-                        </div>
-
-                        <div class="info-item">
-                            <h4>E-mail</h4>
-                            <p>contato@innovarecenter.com</p>
-                        </div>
-
-                        <div class="map-container">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.673894954734!2d-48.25595532386919!3d-18.90161970222039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94a444f8f75a9869%3A0x4a4347716381640!2sAv.%20Jo%C3%A3o%20Naves%20de%20%C3%81vila%2C%202121%20-%20Santa%20M%C3%B4nica%2C%20Uberl%C3%A2ndia%20-%20MG%2C%2038408-100!5e0!3m2!1spt-BR!2sbr!4v1720795493863!5m2!1spt-BR!2sbr"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                        </div>
+                        <div class="info-item"><h4>Endereço</h4><p>Av. João Naves de Ávila, 2121, Santa Mônica, Uberlândia - MG</p></div>
+                        <div class="info-item"><h4>Telefone</h4><p>(34) 3200-0000</p></div>
+                        <div class="info-item"><h4>E-mail</h4><p>contato@innovarecenter.com</p></div>
                     </div>
-
                     <div class="contact-form-wrapper">
                         <h2>Envie sua Mensagem</h2>
-                        <form action="#" method="POST">
+                        <form action="backend/enviar_contato.php" method="POST">
                             <div class="form-group">
                                 <input type="text" id="nome" name="nome" placeholder=" " required>
                                 <label for="nome">Nome Completo</label>
@@ -95,7 +60,7 @@
                             </div>
                             <div class="form-group">
                                 <textarea id="mensagem" name="mensagem" rows="6" placeholder=" " required></textarea>
-                                <label for="mensagem">Deixe sua dúvida, sugestão ou reclamação aqui...</label>
+                                <label for="mensagem">Deixe sua dúvida aqui...</label>
                             </div>
                             <button type="submit" class="cta-button form-button">Enviar Mensagem</button>
                         </form>
@@ -104,21 +69,17 @@
             </div>
         </section>
     </main>
-
-    <footer id="main-footer">
-        <div class="container footer-content">
-            <p class="copyright">© 2025 Innovare Medical Center. Todos os direitos reservados.</p>
-            <nav class="footer-nav">
-                <ul>
-                    <li><a href="/index.html#about">Sobre Nós</a></li>
-                    <li><a href="/index.html#services">Serviços</a></li>
-                    <li><a href="/index.html">Início</a></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
-
+    <footer id="main-footer"></footer>
     <script src="js/script_index.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('status') === 'success') {
+                alert('Mensagem enviada com sucesso!');
+            } else if (urlParams.get('status') === 'error') {
+                alert('Ocorreu um erro ao enviar a mensagem. Tente novamente.');
+            }
+        });
+    </script>
 </body>
-
 </html>
